@@ -19,7 +19,7 @@ jobs:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
         source: "."
         target: "/home/front/derek.uz"
@@ -32,7 +32,7 @@ jobs:
         host: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: true
         script: |
           git --work-tree=/home/front/derek.uz --git-dir=/home/front/derek.uz/.git clean -f .
