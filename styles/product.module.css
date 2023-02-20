@@ -1,0 +1,257 @@
+.product_inner {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.inner_top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.inner_top > img {
+  display: inline-block;
+  width: 100%;
+  height: 520px;
+  object-fit: contain;
+  border-radius: 20px;
+  background-color: rgba(238, 237, 239, 0.5);
+  cursor: pointer;
+}
+
+.product_title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01rem;
+  color: var(--black);
+  max-width: 385px;
+}
+
+.select_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-end;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.check {
+  width: 100%;
+  height: 45px;
+  background-color: var(--light-blue);
+  color: var(--white);
+  border-radius: 12px;
+}
+
+.sotuvda_mavjud {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02rem;
+  color: var(--light-blue);
+  margin-bottom: 5px;
+}
+
+.select_div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.select_div p {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--black);
+}
+
+.select_div select {
+  padding: 14px 16px;
+  background-color: rgba(217, 217, 217, 0.25);
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 17px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("../public/media/select_polygon.png");
+  background-repeat: no-repeat;
+  background-position-x: 92%;
+  background-position-y: center;
+}
+
+.product_info_list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.product_info_single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 420px;
+}
+
+.info_single_key {
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.03rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.info_single_value {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.03rem;
+  color: var(--black);
+}
+
+.product_info_single_price {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.info_single_cost {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02rem;
+  color: var(--black);
+}
+
+.info_single_price {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+  color: var(--black);
+}
+
+.yagona_btn {
+  background-color: var(--light-blue);
+  color: var(--white);
+  border-radius: 78px;
+  width: 100%;
+  padding-block: 18px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.03rem;
+  margin-top: 50px;
+  max-width: 320px;
+  font-weight: 600;
+}
+
+.inner_bottom_desc p {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02rem;
+  max-width: 800px;
+}
+
+.error_message {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  color: red;
+}
+
+.skeleton_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.skeleton_img {
+  height: 520px;
+  background-color: var(--gray);
+  border-radius: 20px;
+}
+
+.skeleton_flex {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeleton {
+  height: 24px;
+  width: 100%;
+  background-color: var(--gray);
+  border-radius: 20px;
+}
+
+.skeleton:nth-child(even) {
+  max-width: 420px;
+}
+
+@media (max-width: 1800px) {
+  .inner_top img,
+  .skeleton_img {
+    height: 450px;
+  }
+  .yagona_btn {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .select_container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .check {
+    grid-column: span 2 / span 2;
+  }
+}
+
+@media (max-width: 880px) {
+  .product_inner {
+    border: none;
+    padding: 0px 16px;
+  }
+  .inner_top,
+  .skeleton_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .inner_top img,
+  .skeleton_img {
+    height: 360px;
+  }
+  .select_container,
+  .product_info_single,
+  .yagona_btn,
+  .product_title,
+  .skeleton:nth-child(even) {
+    max-width: 100%;
+  }
+  .info_single_cost {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: -1.5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .select_container {
+    grid-template-columns: 1fr;
+  }
+  .check {
+    grid-column: auto;
+  }
+}
