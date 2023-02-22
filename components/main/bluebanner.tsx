@@ -4,6 +4,7 @@ import styles from "../../styles/home.module.css";
 import { MotionSection } from "./motion-section";
 import logoMini from "../../public/media/footer_derek.png";
 import {
+  exclude,
   facebook,
   instagram,
   logo,
@@ -81,6 +82,8 @@ export function MainBlueBanner() {
               },
             }}
           >
+            <span className={styles.exclude}>{exclude}</span>
+            <span className={styles.exclude_end}>{exclude}</span>
             <span className={styles.onDesktop}>{logo}</span>
             <Image src={logoMini} alt={"logo"} className={styles.onMobile} />
             <p>Kompaniyamiz haqida</p>
@@ -99,6 +102,10 @@ export function MainBlueBanner() {
               },
             }}
           >
+            <span className={styles.exclude_tl}>{exclude}</span>
+            <span className={styles.exclude_tr}>{exclude}</span>
+            <span className={styles.exclude_bl}>{exclude}</span>
+            <span className={styles.exclude_br}>{exclude}</span>
             <nav className={styles.bluebanner_nav}>
               {socialMedia.map((sm) => {
                 return (
@@ -140,6 +147,8 @@ export function MainBlueBanner() {
               },
             }}
           >
+            <span className={styles.exclude}>{exclude}</span>
+            <span className={styles.exclude_end}>{exclude}</span>
             <p className={styles.bluebanner_last_desc}>Free conculting</p>
             <div className={styles.bluebanner_last_content}>
               <p className={styles.bluebanner_last_desc}>

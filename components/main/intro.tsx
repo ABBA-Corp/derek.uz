@@ -2,7 +2,7 @@ import styles from "../../styles/home.module.css";
 import Image from "next/image";
 import bigOgriq from "../../public/media/tish_back.png";
 import intromini from "../../public/media/intro_mini.png";
-import { logo } from "../../public/icons";
+import { exclude, logo } from "../../public/icons";
 import { useContext } from "react";
 import { ModalContext } from "../../context/modal";
 import { gobottom } from "../../pages/_app";
@@ -48,6 +48,8 @@ export function MainIntro() {
               },
             }}
           >
+            <span className={styles.exclude}>{exclude}</span>
+            <span className={styles.exclude_end}>{exclude}</span>
             <h1>Dentist Keramika</h1>
             <div className={styles.intro_first_buttons}>
               <button
@@ -94,6 +96,8 @@ export function MainIntro() {
                 },
               }}
             >
+              <span className={styles.exclude}>{exclude}</span>
+              <span className={styles.exclude_end}>{exclude}</span>
               Derek Max 30 K
             </motion.div>
           </div>

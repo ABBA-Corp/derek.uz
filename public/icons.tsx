@@ -357,3 +357,12 @@ export const mikrob = (
     />
   </svg>
 );
+
+export const exclude = (
+  <svg viewBox="0 0 43 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M43 20H20C8.95429 20 0 11.0457 0 0V49.5813C0 38.5356 8.9543 29.5813 20 29.5813H43V20Z"
+      fill="currentColor"
+    />
+  </svg>
+);
