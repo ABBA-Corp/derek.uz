@@ -14,12 +14,25 @@ import { useContext } from "react";
 import { SiteInfoContext } from "../../context/siteinfo";
 import { ModalContext } from "../../context/modal";
 import { gobottom } from "../../pages/_app";
+import { motion } from "framer-motion";
 
 export function MainBlueBanner() {
   const { siteInfo } = useContext(SiteInfoContext);
   const { setIsModal, setModalCase } = useContext(ModalContext);
 
   const { ref: section, inView: sectionIsVisible } = useInView({
+    triggerOnce: true,
+  });
+
+  const { ref: div1, inView: div1IsVisible } = useInView({
+    triggerOnce: true,
+  });
+
+  const { ref: div2, inView: div2IsVisible } = useInView({
+    triggerOnce: true,
+  });
+
+  const { ref: div3, inView: div3IsVisible } = useInView({
     triggerOnce: true,
   });
 
@@ -54,12 +67,38 @@ export function MainBlueBanner() {
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className={`box`}>
         <div className={styles.bluebanner_inner}>
-          <div className={styles.bluebanner_first}>
+          <motion.div
+            className={styles.bluebanner_first}
+            ref={div1}
+            initial="hidden"
+            animate={div1IsVisible ? "animation" : ""}
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              animation: {
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5, delay: 0.4 },
+              },
+            }}
+          >
             <span className={styles.onDesktop}>{logo}</span>
             <Image src={logoMini} alt={"logo"} className={styles.onMobile} />
             <p>Kompaniyamiz haqida</p>
-          </div>
-          <div className={styles.bluebanner_second}>
+          </motion.div>
+          <motion.div
+            className={styles.bluebanner_second}
+            ref={div2}
+            initial="hidden"
+            animate={div2IsVisible ? "animation" : ""}
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              animation: {
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5, delay: 0.8 },
+              },
+            }}
+          >
             <nav className={styles.bluebanner_nav}>
               {socialMedia.map((sm) => {
                 return (
@@ -86,8 +125,21 @@ export function MainBlueBanner() {
               </button>
               <button onClick={gobottom}>Bizning manzil</button>
             </nav>
-          </div>
-          <div className={styles.bluebanner_last}>
+          </motion.div>
+          <motion.div
+            className={styles.bluebanner_last}
+            ref={div3}
+            initial="hidden"
+            animate={div3IsVisible ? "animation" : ""}
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              animation: {
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5, delay: 1.2 },
+              },
+            }}
+          >
             <p className={styles.bluebanner_last_desc}>Free conculting</p>
             <div className={styles.bluebanner_last_content}>
               <p className={styles.bluebanner_last_desc}>
@@ -105,7 +157,7 @@ export function MainBlueBanner() {
                 <p>We believe in the power of your smile</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </MotionSection>

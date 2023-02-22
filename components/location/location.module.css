@@ -17,6 +17,13 @@
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
+  transition: 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.back_button:hover {
+  border: 1px solid var(--black);
+  transition: 0.3s;
 }
 
 .back_button svg {

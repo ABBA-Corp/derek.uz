@@ -6,12 +6,14 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { MotionSection } from "./motion-section";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { SiteInfoContext } from "../../context/siteinfo";
 
 export function MainCategories() {
   const { locale } = useRouter();
   const [categories, setCategories] = useState<any>([]);
+  const { siteInfo } = useContext(SiteInfoContext);
 
   const { ref: section, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
@@ -45,7 +47,7 @@ export function MainCategories() {
             </p>
             <div className={styles.categories_intro__links}>
               <a
-                href="#"
+                href={siteInfo.cotalog}
                 aria-label="download"
                 className={styles.download_link}
               >

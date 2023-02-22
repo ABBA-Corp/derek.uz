@@ -62,6 +62,24 @@
   border-radius: 28px;
   padding-left: 4px;
   color: var(--black);
+  transition: 0.3s;
+  border: 1px solid var(--black);
+}
+
+.play_btn:hover {
+  background-color: var(--white);
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.play_btn:hover div {
+  background-color: var(--black);
+  transition: 0.3s;
+}
+
+.play_btn:hover p {
+  color: var(--black);
+  transition: 0.3s;
 }
 
 .play_btn div {
@@ -71,6 +89,7 @@
   width: 47px;
   height: 47px;
   border-radius: 50%;
+  transition: 0.3s;
 }
 
 .play_btn div svg {
@@ -84,6 +103,7 @@
   line-height: 14px;
   letter-spacing: -0.03rem;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 .contact_btn {
@@ -99,6 +119,13 @@
   font-weight: 500;
   background-color: var(--white);
   color: var(--black);
+  transition: 0.3s;
+}
+
+.contact_btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+  transition: 0.3s;
 }
 
 .stats_inner {

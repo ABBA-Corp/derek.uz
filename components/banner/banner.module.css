@@ -28,8 +28,16 @@
   display: inline-block;
   padding: 16px 50px;
   background-color: var(--black);
+  border: 1px solid var(--black);
   color: var(--white);
   border-radius: 10px;
+  transition: 0.3s;
+}
+
+.subscribe:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transition: 0.3s;
 }
 
 .banner_section img {

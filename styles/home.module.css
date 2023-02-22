@@ -122,12 +122,31 @@
   color: var(--black);
   padding: 12px 40px;
   border-radius: 114px;
+  transition: 0.3s;
 }
 
 .intro_first_buttons button:first-child,
 .intro_first_buttons a:first-child {
   background-color: var(--black);
   color: var(--white);
+}
+
+.intro_first_buttons button:first-child:hover,
+.intro_first_buttons a:first-child:hover,
+.middle_last_buttons button:first-child:hover,
+.category_banner_buttons a:first-child:hover {
+  background-color: unset;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+.intro_first_buttons button:last-child:hover,
+.intro_first_buttons a:last-child:hover,
+.middle_last_buttons button:last-child:hover,
+.category_banner_buttons a:last-child:hover {
+  background-color: var(--black);
+  color: var(--white);
+  transition: 0.3s;
 }
 
 .intro_last {
@@ -404,6 +423,7 @@
   line-height: 16px;
   letter-spacing: -0.05rem;
   text-align: center;
+  transition: 0.3s;
 }
 
 .category_banner_buttons a:first-child {
@@ -597,7 +617,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-image: url("../public/media/banner_qiz.png");
+  background-image: url("../public/media/banner_qiz.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 20px;
@@ -683,11 +703,24 @@
   letter-spacing: -0.05rem;
   font-weight: 500;
   border-radius: 114px;
+  transition: 0.3s;
 }
 
 .bluebanner_nav button:first-child {
   background-color: var(--black);
   color: var(--white);
+}
+
+.bluebanner_nav button:first-child:hover {
+  background-color: unset;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+.bluebanner_nav button:last-child:hover {
+  background-color: var(--black);
+  color: var(--white);
+  transition: 0.3s;
 }
 
 .bluebanner_last {
@@ -1130,5 +1163,14 @@
   .boshogriq,
   .mask_left {
     display: none;
+  }
+  .bluebanner_last_content_bottom p:last-child {
+    font-size: 10px;
+    line-height: 12px;
+    left: 60%;
+  }
+  .image_side::before {
+    max-height: 40%;
+    top: -5%;
   }
 }
