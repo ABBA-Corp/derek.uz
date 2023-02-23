@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export const url = "https://derek-ndc.vercel.app";
+export const url = "https://derek.itlink.uz";
 
 export const gobottom = () => {
   window.scrollTo(0, document.body.scrollHeight);
