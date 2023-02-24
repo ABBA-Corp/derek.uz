@@ -65,7 +65,7 @@ export function Feedbacks() {
         </div>
         <Swiper
           className={styles.feedbacks_swiper}
-          modules={[Autoplay, Navigation]}
+          modules={[Navigation, Autoplay]}
           navigation={{
             prevEl: prevBtn.current,
             nextEl: nextBtn.current,

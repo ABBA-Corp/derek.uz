@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/error.module.css";
-import errorImage from "../public/media/error-sim.png";
+import errorImage from "../public/media/error-sim.jpg";
 import { CustomHead } from "../components/layout/head";
 import { url } from "./_app";
 

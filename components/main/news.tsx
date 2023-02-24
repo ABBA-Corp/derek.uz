@@ -5,16 +5,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import Image from "next/image";
 import { MotionSection } from "./motion-section";
 import { useInView } from "react-intersection-observer";
 import { NewsCard } from "../newsCard/newsCard";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export function MainNews() {
   const { locale } = useRouter();
   const [news, setNews] = useState<any>([]);
+
+  SwiperCore.use([Navigation]);
 
   async function getAllNews() {
     const res = await axios.get(
@@ -32,8 +34,6 @@ export function MainNews() {
       })
       .catch((e) => console.log(e));
   }, [locale]);
-
-  SwiperCore.use([Navigation]);
 
   const { ref: section, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
@@ -67,17 +67,6 @@ export function MainNews() {
         <div className="withGray">
           <Swiper
             modules={[Autoplay, Navigation]}
-            spaceBetween={20}
-            loop
-            slidesPerView={"auto"}
-            breakpoints={{
-              0: { slidesPerView: 1.2 },
-              580: { slidesPerView: 2.2 },
-              880: { slidesPerView: 3.2 },
-              1200: { slidesPerView: 6 },
-            }}
-            autoplay={{ delay: 2000, disableOnInteraction: true }}
-            speed={1600}
             navigation={{
               prevEl: prevBtn.current,
               nextEl: nextBtn.current,
@@ -86,6 +75,17 @@ export function MainNews() {
               swiper.params.navigation.prevEl = prevBtn.current;
               swiper.params.navigation.nextEl = nextBtn.current;
             }}
+            loop
+            autoplay={{ delay: 2000, disableOnInteraction: true }}
+            spaceBetween={20}
+            slidesPerView={"auto"}
+            breakpoints={{
+              0: { slidesPerView: 1.2 },
+              580: { slidesPerView: 2.2 },
+              880: { slidesPerView: 3.2 },
+              1200: { slidesPerView: 6 },
+            }}
+            speed={1600}
           >
             {news.map((singleNews: any, i: number) => {
               return (
@@ -96,6 +96,13 @@ export function MainNews() {
             })}
           </Swiper>
         </div>
+      </div>
+      <div className={`box ${styles.new_divcha}`}>
+        <p>
+          Лучшая компания в Ташкенте. Удобное расположение. Находится в центре
+          Ташкента.Лучшая компания в Ташкенте. Удобное
+        </p>
+        <Link href={"/news"}>Barcha yangiliklar</Link>
       </div>
     </MotionSection>
   );

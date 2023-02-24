@@ -77,7 +77,6 @@ export function MainProducts() {
               1200: { slidesPerView: 6 },
             }}
             autoplay={{ delay: 2000, disableOnInteraction: true }}
-            speed={1600}
             navigation={{
               prevEl: prevBtn.current,
               nextEl: nextBtn.current,
@@ -86,6 +85,7 @@ export function MainProducts() {
               swiper.params.navigation.prevEl = prevBtn.current;
               swiper.params.navigation.nextEl = nextBtn.current;
             }}
+            speed={1600}
           >
             {products.map((product: any, i: number) => {
               return (

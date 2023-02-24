@@ -32,12 +32,19 @@ export function MainCategoryBanner() {
             </div>
             <div className={styles.category_banner_buttons}>
               <Link href={"/category"}>Katalogga kirish</Link>
-              <a href={siteInfo.cotalog} aria-label="download catalogue">
+              <a
+                href={siteInfo.cotalog}
+                aria-label="download catalogue"
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
                 Yuklab olish
               </a>
             </div>
           </div>
-          <Image src={catimg} alt={"categories image"} loading={"lazy"} />
+          <div className={styles.new_div}>
+            <Image src={catimg} alt={"categories image"} loading={"lazy"} />
+          </div>
         </div>
       </div>
     </MotionSection>
