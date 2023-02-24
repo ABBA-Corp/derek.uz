@@ -117,9 +117,13 @@
   color: var(--black);
 }
 
+.info_single_value:hover {
+  text-decoration: underline;
+}
+
 .product_info_single_price {
   display: flex;
-  align-items: flex-end;
+  vertical-align: bottom;
   gap: 12px;
   margin-top: 32px;
 }
@@ -129,6 +133,7 @@
   line-height: 24px;
   letter-spacing: -0.02rem;
   color: var(--black);
+  margin-top: 2.5px;
 }
 
 .info_single_price {
@@ -243,7 +248,7 @@
   .info_single_cost {
     font-size: 14px;
     line-height: 21px;
-    margin-bottom: -1.5px;
+    margin-top: 5px;
   }
 }
 

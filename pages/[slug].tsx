@@ -139,6 +139,7 @@ export default function ProductInnerPage() {
                         defaultValue={color}
                         onChange={handleColorSelect}
                         options={colorOptions}
+                        className={styles.mySelect}
                       ></Select>
                     </div>
                     <div className={styles.select_div}>
@@ -147,6 +148,7 @@ export default function ProductInnerPage() {
                         defaultValue={weight}
                         onChange={handleWeightSelect}
                         options={weightOptions}
+                        className={styles.mySelect}
                       ></Select>
                     </div>
                   </div>

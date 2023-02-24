@@ -19,7 +19,8 @@ export function TelegramBanner() {
       motionBoolean={sectionIsVisible}
       customClass={styles.banner_section}
     >
-      <Image src={tg} alt={"telegram icon"} />
+      <Image src={tg} alt={"telegram icon"} className={styles.img1} />
+      <Image src={tg} alt={"telegram icon"} className={styles.img2} />
       <div className="miniBox">
         <div className={styles.banner_inner}>
           <p className={styles.banner_desc}>

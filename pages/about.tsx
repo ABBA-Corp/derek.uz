@@ -107,6 +107,7 @@ export default function AboutPage() {
         <MotionSection
           motionRef={statSection}
           motionBoolean={statSectionIsVisible}
+          customClass={"class"}
         >
           <div className={`miniBox ${styles.stats_inner}`}>
             <p className={`section_title ${styles.centered_title}`}>

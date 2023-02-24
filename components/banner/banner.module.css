@@ -1,6 +1,6 @@
 .banner_section {
   margin-top: 60px;
-  height: 300px;
+  height: 345px;
   border: 1px solid var(--white);
   position: relative;
 }
@@ -40,7 +40,7 @@
   transition: 0.3s;
 }
 
-.banner_section img {
+.img1 {
   position: absolute;
   top: 0;
   left: 25%;
@@ -49,14 +49,27 @@
   object-fit: contain;
 }
 
+.img2 {
+  position: absolute;
+  bottom: -5%;
+  right: 35%;
+  display: inline-block;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+}
+
 @media (max-width: 1800px) {
   .banner_section {
-    height: 255px;
+    height: 300px;
   }
-  .banner_section img {
+  .img1 {
     width: 110px;
     height: 110px;
     left: 15%;
+  }
+  .img2 {
+    right: 30%;
   }
   .banner_inner {
     margin-top: 50px;
@@ -71,6 +84,9 @@
 @media (max-width: 880px) {
   .banner_section {
     height: auto;
+  }
+  .img2 {
+    display: none;
   }
   .banner_inner {
     flex-direction: column;
