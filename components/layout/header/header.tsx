@@ -45,7 +45,7 @@ export function Header({ isMenu, setIsMenu, isLangs, setIsLangs }: Props) {
                 <span></span>
                 <span></span>
               </div>
-              <p>{t.menu}</p>
+              <p>{t["main.menu"]}</p>
             </button>
             <Link href={"/"}>{logo}</Link>
           </div>

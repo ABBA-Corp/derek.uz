@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const TranslationsContext = createContext();
 
@@ -8,8 +8,6 @@ export default function TranslationsContextProvider({ children }) {
 
   const [t, setT] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
-  let translationsArray = [];
 
   async function getTranslations() {
     const response = await fetch(
@@ -26,19 +24,13 @@ export default function TranslationsContextProvider({ children }) {
     setIsLoading(true);
     getTranslations()
       .then((res) => {
-        if (locale === "en") {
-          setT(res.en);
-        } else if (locale === "ru") {
-          setT(res.ru);
-        } else if (locale === "uz") {
-          setT(res.uz);
-        }
+        setT(res);
         setIsLoading(false);
       })
       .catch((e) => console.log(e));
   }, [locale]);
 
-  const value = { isLoading, setIsLoading, t, setT };
+  const value = { isLoading, setIsLoading, t };
 
   return (
     <TranslationsContext.Provider value={value}>

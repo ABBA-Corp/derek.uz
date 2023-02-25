@@ -16,10 +16,10 @@ export function NavMenu({ isMenu, setIsMenu }: Props) {
     <div className={isMenu ? `${styles.menu} ${styles.show}` : styles.menu}>
       <div className={`box ${styles.main_container}`}>
         <nav className={styles.main_nav}>
-          <Link href={"/"}>{t.main}</Link>
-          <Link href={"/about"}>{t.about}</Link>
-          <Link href={"/news"}>{t.all_news}</Link>
-          <Link href={"/category"}>{t.all_categories}</Link>
+          <Link href={"/"}>{t["main.main"]}</Link>
+          <Link href={"/about"}>{t["main.about"]}</Link>
+          <Link href={"/news"}>{t["main.all_news"]}</Link>
+          <Link href={"/category"}>{t["main.all_categories"]}</Link>
         </nav>
         <button className={styles.xBtn} onClick={() => setIsMenu(false)}>
           {xBtn}
