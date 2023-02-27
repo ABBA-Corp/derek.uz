@@ -29,6 +29,11 @@
   border-radius: 12px !important;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 button {
   border: none;
   background-color: unset;

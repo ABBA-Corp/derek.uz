@@ -1047,6 +1047,90 @@
   transition: 0.3s;
 }
 
+.animation {
+  max-width: 100px;
+  width: 100%;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 100%;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  color: var(--light-blue);
+  position: relative;
+}
+
+.animation_box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+}
+
+.svg {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.svg circle {
+  fill: none;
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
+
+.svg circle.meter {
+  stroke: var(--light-blue);
+  stroke-dashoffset: -250px;
+  stroke-dasharray: 390px;
+  animation: glow 10s linear forwards infinite;
+}
+
+@keyframes glow {
+  0% {
+    stroke-dashoffset: -250px;
+  }
+  10% {
+    stroke-dashoffset: -225px;
+  }
+  20% {
+    stroke-dashoffset: -200px;
+  }
+  30% {
+    stroke-dashoffset: -175px;
+  }
+  40% {
+    stroke-dashoffset: -150px;
+  }
+  50% {
+    stroke-dashoffset: -125px;
+  }
+  60% {
+    stroke-dashoffset: -100px;
+  }
+  70% {
+    stroke-dashoffset: -75px;
+  }
+  80% {
+    stroke-dashoffset: -50px;
+  }
+  90% {
+    stroke-dashoffset: -25px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
 @media (max-width: 1800px) {
   .intro_first h1 {
     font-size: 60px;
