@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Footer } from "./footer/footer";
 import { Header } from "./header/header";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { TranslationsContext } from "../../context/translations";
 import { Loading } from "../loading/loading";
-import { SiteInfoContext } from "../../context/siteinfo";
 import { ModalContext } from "../../context/modal";
 import { Modal } from "../modal/modal";
 
@@ -15,11 +14,20 @@ type Props = {
 
 export function Layout({ children }: Props) {
   const { pathname } = useRouter();
-  const { siteInfo } = useContext(SiteInfoContext);
   const { isLoading } = useContext(TranslationsContext);
   const [isMenu, setIsMenu] = useState<boolean>(false);
   const [isLangs, setIsLangs] = useState<boolean>(false);
   const { isModal } = useContext(ModalContext);
+
+  useEffect(() => {
+    window.addEventListener("click", (e: any) => {
+      const eventclass = e.target.className;
+
+      if (eventclass == "popup show") {
+        setIsLangs(false);
+      }
+    });
+  }, []);
 
   return (
     <AnimatePresence>
@@ -42,7 +50,7 @@ export function Layout({ children }: Props) {
           <main style={{ paddingTop: pathname === "/about" ? "0px" : "auto" }}>
             {children}
           </main>
-          <Footer siteInfo={siteInfo} />
+          <Footer />
           <div
             className={
               isMenu

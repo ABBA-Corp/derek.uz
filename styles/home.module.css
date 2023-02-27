@@ -472,6 +472,7 @@
   height: 100%;
   border-radius: 20px;
   background-color: #a7b7b5;
+  overflow: hidden;
 }
 
 .category_banner_inner img {
