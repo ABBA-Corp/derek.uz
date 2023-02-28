@@ -3,13 +3,14 @@ import { useInView } from "react-intersection-observer";
 import styles from "../../styles/home.module.css";
 import { MotionSection } from "./motion-section";
 import logo from "../../public/media/footer_derek.png";
-import one from "../../public/media/one.png";
 import myVideo from "../../public/media/video.mp4";
 import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../context/modal";
 import { gobottom } from "../../pages/_app";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainMiddleBanner() {
+  const { t } = useContext(TranslationsContext);
   const { setIsModal, setModalCase } = useContext(ModalContext);
   const { ref: section, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
@@ -18,38 +19,41 @@ export function MainMiddleBanner() {
   const content = [
     {
       id: 1,
-      title: "Kasal tishni tozalash",
-      description:
-        "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,",
+      title: t["main.step1_title"],
+      description: t["main.step1_desc"],
       image: myVideo,
     },
     {
       id: 2,
-      title: "Sog`lom tishni tozalash",
-      description:
-        "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,",
+      title: t["main.step2_title"],
+      description: t["main.step2_desc"],
       image: myVideo,
     },
     {
       id: 3,
-      title: "Aql tishini tozalash",
-      description:
-        "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,",
+      title: t["main.step3_title"],
+      description: t["main.step3_desc"],
       image: myVideo,
     },
   ];
 
   const [currentTab, setCurrentTab] = useState<number>(1);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (currentTab >= 3) {
+  const render = () => {
+    let change = function () {
+      if (currentTab === 3) {
+        clearInterval(id);
         setCurrentTab(1);
       } else {
         setCurrentTab(currentTab + 1);
       }
-    }, 10000);
-  }, content);
+    };
+    let id = setInterval(change, 10000);
+  };
+
+  useEffect(() => {
+    render();
+  }, [currentTab]);
 
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
@@ -61,7 +65,6 @@ export function MainMiddleBanner() {
                 <div key={c.id} className={styles.middle_first}>
                   <div className={styles.middle_first_content}>
                     <div className={styles.middle_first_inner}>
-                      {/* <Image src={one} alt={"one"} /> */}
                       <div className={styles.animation_box}>
                         <svg className={styles.svg} viewBox="0 0 100 100">
                           <circle
@@ -78,14 +81,9 @@ export function MainMiddleBanner() {
                     <p className={styles.middle_first_desc}>{c.description}</p>
                   </div>
                   <button
+                    style={{ display: "none" }}
                     className={styles.next_steps}
-                    onClick={() => {
-                      if (currentTab >= 3) {
-                        setCurrentTab(1);
-                      } else {
-                        setCurrentTab(currentTab + 1);
-                      }
-                    }}
+                    onClick={render}
                   >
                     Keyingi qadam
                   </button>
