@@ -11,7 +11,8 @@ export default function TranslationsContextProvider({ children }) {
 
   async function getTranslations() {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_ENDPOINT}/translations`
+      `${process.env.NEXT_PUBLIC_ENDPOINT}/translations`,
+      { headers: { language: locale } }
     );
     if (!response.ok) {
       throw new Error("Data coud not be fetched!");

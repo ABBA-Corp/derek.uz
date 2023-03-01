@@ -3,7 +3,7 @@ import SwiperCore, { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { swiperArrow } from "../../public/icons";
 import styles from "./partners.module.css";
 import { MotionSection } from "../main/motion-section";
@@ -11,6 +11,7 @@ import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/router";
 import axios from "axios";
 import noimage from "../../public/media/noimage.png";
+import { TranslationsContext } from "../../context/translations";
 
 type Props = {
   number: number;
@@ -49,14 +50,12 @@ export function Partners({ number, layoutClass }: Props) {
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className={`${layoutClass} ${styles.section_inner}`}>
         <div className={styles.inner_top}>
-          <h3 className="section_title">
-            Bizga ishonch bildirgan kompaniyalar
-          </h3>
+          <h3 className="section_title">{t["main.partners"]}</h3>
           <div className={styles.buttons}>
             <button
               ref={prevBtn}

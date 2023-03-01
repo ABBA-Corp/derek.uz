@@ -39,21 +39,15 @@ export function MainMiddleBanner() {
 
   const [currentTab, setCurrentTab] = useState<number>(1);
 
-  const render = () => {
-    let change = function () {
-      if (currentTab === 3) {
-        clearInterval(id);
+  useEffect(() => {
+    setTimeout(() => {
+      if (currentTab >= 3) {
         setCurrentTab(1);
       } else {
         setCurrentTab(currentTab + 1);
       }
-    };
-    let id = setInterval(change, 10000);
-  };
-
-  useEffect(() => {
-    render();
-  }, [currentTab]);
+    }, 10000);
+  }, content);
 
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
@@ -83,9 +77,15 @@ export function MainMiddleBanner() {
                   <button
                     style={{ display: "none" }}
                     className={styles.next_steps}
-                    onClick={render}
+                    onClick={() => {
+                      if (currentTab >= 3) {
+                        setCurrentTab(1);
+                      } else {
+                        setCurrentTab(currentTab + 1);
+                      }
+                    }}
                   >
-                    Keyingi qadam
+                    {t["main.next_step"]}
                   </button>
                 </div>
                 <div className={styles.middle_big}>
@@ -101,10 +101,9 @@ export function MainMiddleBanner() {
         })}
         <div className={styles.middle_last}>
           <div className={styles.middle_last_content}>
-            <p>Savollaringiz bormi?</p>
+            <p>{t["main.have_questions"]}?</p>
             <p>
-              birgina formani to’ldirish orqali biz malumotlarga ega bo’ling!{" "}
-              <b>Konsulatatsiya mutlaqo bepul</b>
+              {t["main.getinfo1"]}! <b>{t["main.get_info_bold"]}</b>
             </p>
           </div>
           <div className={styles.middle_last_buttons}>
@@ -114,9 +113,9 @@ export function MainMiddleBanner() {
                 setIsModal(true);
               }}
             >
-              Zayavka qoldirish
+              {t["main.leave_comment"]}
             </button>
-            <button onClick={gobottom}>Biz bilan aloqa</button>
+            <button onClick={gobottom}>{t["main.contactwithus"]}</button>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { TranslationsContext } from "../../context/translations";
 import { ProductCard } from "../productCard/productCard";
 
 type Props = {
@@ -33,12 +34,14 @@ export function Products({ parentID, categoryTitle }: Props) {
       })
       .catch((e) => console.log(e));
   }, [locale]);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <section className="section">
       <div className={`box`}>
         <h3 className="section_title">
-          {parentID ? `${categoryTitle} uchun tovarlarimiz` : "Barcha tovarlar"}
+          {parentID
+            ? `${categoryTitle} ${t["category.productp1"]}`
+            : `${t["category.all_products"]}`}
         </h3>
         <div className={`mainGrid withGray`}>
           {products.map((product: any, i: number) => {

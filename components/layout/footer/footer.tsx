@@ -13,6 +13,7 @@ import {
 import { FooterForm } from "./form";
 import { useContext } from "react";
 import { SiteInfoContext } from "../../../context/siteinfo";
+import { TranslationsContext } from "../../../context/translations";
 
 export function Footer() {
   const { siteInfo } = useContext(SiteInfoContext);
@@ -73,6 +74,7 @@ export function Footer() {
       url: siteInfo.facebook,
     },
   ];
+  const { t } = useContext(TranslationsContext);
 
   return (
     <footer className={styles.footer}>
@@ -105,10 +107,9 @@ export function Footer() {
       <div className={`box ${styles.footer_inner}`}>
         <div className={styles.footer_middle}>
           <div className={styles.middle_content_side}>
-            <p className={styles.content_side_title}>Biz bilan bog’laning</p>
+            <p className={styles.content_side_title}>{t["footer.contacth"]}</p>
             <p className={styles.content_side_desc}>
-              Ma`lumotlaringizni qoldiring va operatorlarimiz siz bilan
-              bog`lanadilar
+              {t["footer.contact_desc"]}
             </p>
           </div>
           <FooterForm />
@@ -137,10 +138,10 @@ export function Footer() {
               </div>
               <div className={styles.nav_top__div}>
                 <nav className={styles.nav_top__nav}>
-                  <p>Privacy Policy</p>
-                  <p>Terms of Service</p>
-                  <p>Compliance</p>
-                  <p>Cookie Policy</p>
+                  <p>{t["footer.privacy_policy"]}</p>
+                  <p>{t["footer.terms_of"]}</p>
+                  <p>{t["footer.compliance"]}</p>
+                  <p>{t["footer.cookie"]}</p>
                 </nav>
               </div>
             </div>
@@ -161,8 +162,10 @@ export function Footer() {
                 })}
               </div>
               <div className={styles.copy_div}>
-                <p>&copy; {new Date().getFullYear()}, Apeel Sciences.</p>
-                <p>All rights reserved.</p>
+                <p>
+                  &copy; {new Date().getFullYear()}, {t["footer.apeel"]}.
+                </p>
+                <p>{t["footer.allright"]}.</p>
               </div>
             </div>
           </nav>

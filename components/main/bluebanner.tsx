@@ -16,6 +16,7 @@ import { SiteInfoContext } from "../../context/siteinfo";
 import { ModalContext } from "../../context/modal";
 import { gobottom } from "../../pages/_app";
 import { motion } from "framer-motion";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainBlueBanner() {
   const { siteInfo } = useContext(SiteInfoContext);
@@ -63,7 +64,7 @@ export function MainBlueBanner() {
       url: siteInfo.facebook,
     },
   ];
-
+  const { t } = useContext(TranslationsContext);
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className={`box`}>
@@ -86,7 +87,7 @@ export function MainBlueBanner() {
             <span className={styles.exclude_end}>{exclude}</span>
             <span className={styles.onDesktop}>{logo}</span>
             <Image src={logoMini} alt={"logo"} className={styles.onMobile} />
-            <p>Kompaniyamiz haqida</p>
+            <p>{t["main.aboutour_company"]}</p>
           </motion.div>
           <motion.div
             className={styles.bluebanner_second}
@@ -128,9 +129,9 @@ export function MainBlueBanner() {
                   setIsModal(true);
                 }}
               >
-                Biz bilan aloqa
+                {t["main.contactwithus"]}
               </button>
-              <button onClick={gobottom}>Bizning manzil</button>
+              <button onClick={gobottom}>{t["main.our_location"]}</button>
             </nav>
           </motion.div>
           <motion.div
@@ -149,17 +150,10 @@ export function MainBlueBanner() {
           >
             <span className={styles.exclude}>{exclude}</span>
             <span className={styles.exclude_end}>{exclude}</span>
-            <p className={styles.bluebanner_last_desc}>Free conculting</p>
+            <p className={styles.bluebanner_last_desc}>{t["main.aboutfree"]}</p>
             <div className={styles.bluebanner_last_content}>
               <p className={styles.bluebanner_last_desc}>
-                simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry&apos;s standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It
-                wsimply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry&apos;s standard{" "}
+                {t["main.blue_desc"]}
               </p>
               <div className={styles.bluebanner_last_content_bottom}>
                 <p>Smile makeover</p>

@@ -67,16 +67,16 @@ const SearchContent = () => {
     router.push("/results");
     setIsLoading(false);
   };
-
+  const { t } = useContext(TranslationsContext);
   return (
     <div className={styles.modal_container}>
-      <p>Поиск по сайту</p>
+      <p>{t["main.search"]}</p>
       <form className={styles.search_content} onSubmit={handleSearch}>
         <button type="submit">{search}</button>
         <input
           type="text"
           autoFocus
-          placeholder="Nimadir qidiring!"
+          placeholder={`${t["main.writesomething"]} !`}
           required
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -86,13 +86,14 @@ const SearchContent = () => {
 };
 
 const PostContent = () => {
+  const { t } = useContext(TranslationsContext);
   const { setIsModal } = useContext(ModalContext);
 
   return (
     <div className={styles.modal_container}>
       <div className={styles.post_content}>
         <div className={styles.post_top}>
-          <p>Заполните форму</p>
+          <p>{t["main.fill"]}</p>
           <button
             onClick={() => {
               setIsModal(false);
@@ -109,12 +110,12 @@ const PostContent = () => {
 
 const PostProductContent = () => {
   const { setIsModal, order } = useContext(ModalContext);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <div className={styles.modal_container}>
       <div className={styles.post_content}>
         <div className={styles.post_top}>
-          <p>Заполните форму</p>
+          <p>{t["main.fill"]}</p>
           <button
             onClick={() => {
               setIsModal(false);
@@ -135,19 +136,19 @@ const PostProductContent = () => {
           </div>
           <div className={styles.order_content}>
             <div className={styles.order_k_v}>
-              <p className={styles.order_k}>Name:</p>
+              <p className={styles.order_k}>{t["main.modul_name"]}:</p>
               <p>{order.product?.name}</p>
             </div>
             <div className={styles.order_k_v}>
-              <p className={styles.order_k}>Artikul:</p>
+              <p className={styles.order_k}>{t["main.modul_article"]}:</p>
               <p>{order.code}</p>
             </div>
             <div className={styles.order_k_v}>
-              <p className={styles.order_k}>Производитель:</p>
+              <p className={styles.order_k}>{t["main.modul_manufacturer"]}:</p>
               <p>{order.product?.manufacturer}</p>
             </div>
             <div className={styles.order_k_v}>
-              <p className={styles.order_k}>Cost:</p>
+              <p className={styles.order_k}>{t["main.modul_cost"]}:</p>
               <p>{order.price} €</p>
             </div>
           </div>

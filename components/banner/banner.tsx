@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { MotionSection } from "../main/motion-section";
 import { useContext } from "react";
 import { SiteInfoContext } from "../../context/siteinfo";
+import { TranslationsContext } from "../../context/translations";
 
 export function TelegramBanner() {
   const { siteInfo } = useContext(SiteInfoContext);
@@ -12,6 +13,7 @@ export function TelegramBanner() {
   const { ref: section, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
   });
+  const { t } = useContext(TranslationsContext);
 
   return (
     <MotionSection
@@ -23,10 +25,7 @@ export function TelegramBanner() {
       <Image src={tg} alt={"telegram icon"} className={styles.img2} />
       <div className="miniBox">
         <div className={styles.banner_inner}>
-          <p className={styles.banner_desc}>
-            Подписывайтесь на наш Telegram-канал и первыми получайте информацию
-            о ближайших курсах, открытых лекциях и выгодных предложениях.
-          </p>
+          <p className={styles.banner_desc}>{t["main.telegram_banner_desc"]}</p>
           <a
             href={siteInfo.telegram}
             className={styles.subscribe}
@@ -34,7 +33,7 @@ export function TelegramBanner() {
             target={"_blank"}
             rel={"noreferrer"}
           >
-            Подписаться
+            {t["main.telegram_banner_sub"]}
           </a>
         </div>
       </div>

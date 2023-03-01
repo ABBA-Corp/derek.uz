@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { SiteInfoContext } from "../../context/siteinfo";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainCategories() {
   const { locale } = useRouter();
@@ -35,15 +36,17 @@ export function MainCategories() {
       })
       .catch((e) => console.log(e));
   }, []);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className="box">
-        <h3 className="section_title">Mahsulotlar kategoriyasi</h3>
+        <h3 className="section_title">{t["main.categories_h"]}</h3>
         <div className={`withGray ${styles.categories_grid}`}>
           <div className={styles.categories_intro}>
             <p>
-              Derek mahsuloti <b>30 dan</b> ortiq mahsulotlar bor
+              {t["main.categories_desc1"]}{" "}
+              <b>{t["main.categories_desc_bold"]}</b>{" "}
+              {t["main.categories_desc3"]}
             </p>
             <div className={styles.categories_intro__links}>
               <a
@@ -51,10 +54,10 @@ export function MainCategories() {
                 aria-label="download"
                 className={styles.download_link}
               >
-                Download catalog
+                {t["main.categories_download"]}
               </a>
               <Link href={"/category"} className={styles.category_link}>
-                Katalogga o’tish
+                {t["main.allcategoriesbtn"]}
               </Link>
             </div>
           </div>
@@ -67,7 +70,7 @@ export function MainCategories() {
             href={`/category`}
             className={`${styles.category} ${styles.last}`}
           >
-            <p className={styles.category_title}>Barcha kategoriyalar</p>
+            <p className={styles.category_title}>{t["main.all_categories"]}</p>
             {swiperArrow}
           </Link>
         </div>

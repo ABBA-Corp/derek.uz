@@ -4,47 +4,49 @@ import styles from "../../styles/home.module.css";
 import { MotionSection } from "./motion-section";
 import mainImage from "../../public/media/fade_img.png";
 import { kachok, mikrob, qalqon, tish } from "../../public/icons";
+import { useContext } from "react";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainWhyDerek() {
   const { ref: section, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
   });
-
+  const { t } = useContext(TranslationsContext);
   const gridCards = [
     {
       id: 1,
-      title: "Uzoq vaqt davomida turishi",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_1"],
+      desc: t["main.smile_mini_desc1"],
       icon: kachok,
     },
     {
       id: 2,
-      title: "Kosmetik tarafdan chiroyli",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_2"],
+      desc: t["main.smile_mini_desc2"],
       icon: tish,
     },
     {
       id: 3,
-      title: "Anti alergik hususiyati",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_3"],
+      desc: t["main.smile_mini_desc3"],
       icon: mikrob,
     },
     {
       id: 4,
-      title: "Odatiy tishlarga nisbatan 2 barobar mustahkamroq",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_4"],
+      desc: t["main.smile_mini_desc4"],
       icon: qalqon,
     },
     {
       id: 5,
-      title: "Odatiy tishlarga nisbatan 2 barobar mustahkamroq",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_5"],
+      desc: t["main.smile_mini_desc5"],
       icon: qalqon,
     },
     {
       id: 6,
-      title: "Anti alergik hususiyati",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_6"],
+      desc: t["main.smile_mini_desc6"],
       icon: mikrob,
     },
   ];
@@ -59,17 +61,9 @@ export function MainWhyDerek() {
         <div className={styles.content_side}>
           <div className={styles.content_titles}>
             <p>
-              <b>Nima uchun aynan DEREK?</b> #WeloveyourSMILE
+              <b>{t["main.whyderek"]}?</b> #WeloveyourSMILE
             </p>
-            <p>
-              xt ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker includin
-            </p>
+            <p>{t["main.smile_mini_desc"]}</p>
           </div>
           <div className={styles.content_grid}>
             {gridCards.map((card) => {

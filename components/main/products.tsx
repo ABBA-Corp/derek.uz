@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { swiperArrow } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +10,7 @@ import { MotionSection } from "./motion-section";
 import { ProductCard } from "../productCard/productCard";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainProducts() {
   const { locale } = useRouter();
@@ -40,12 +41,12 @@ export function MainProducts() {
       })
       .catch((e) => console.log(e));
   }, [locale]);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className="box">
         <div className={styles.inner_top}>
-          <h3 className="section_title">Top tovarlarimiz</h3>
+          <h3 className="section_title">{t["main.top_items"]}</h3>
           <div className={styles.buttons}>
             <button
               ref={prevBtn}

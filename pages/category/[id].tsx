@@ -5,10 +5,11 @@ import { Layout } from "../../components/layout/layout";
 import { Products } from "../../components/products/product";
 import styles from "../../styles/category.module.css";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import noimage from "../../public/media/noimage.png";
 import { url } from "../_app";
+import { TranslationsContext } from "../../context/translations";
 
 export default function SingleCategory() {
   const router = useRouter();
@@ -35,7 +36,7 @@ export default function SingleCategory() {
         .catch(() => router.push("/404"));
     }
   }, [router]);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <>
       <CustomHead
@@ -57,7 +58,7 @@ export default function SingleCategory() {
                 aria-label="download"
                 className={styles.download_btn}
               >
-                Download catalog
+                {t["category.download_btn"]}
               </a>
             </div>
             <div className={styles.intro_info}>

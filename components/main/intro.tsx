@@ -8,6 +8,7 @@ import { ModalContext } from "../../context/modal";
 import { gobottom } from "../../pages/_app";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainIntro() {
   const { setIsModal, setModalCase } = useContext(ModalContext);
@@ -27,7 +28,7 @@ export function MainIntro() {
   const { ref: div3, inView: div3IsVisible } = useInView({
     triggerOnce: true,
   });
-
+  const { t } = useContext(TranslationsContext);
   return (
     <section>
       <div className={`box ${styles.intro_grid}`}>
@@ -50,7 +51,7 @@ export function MainIntro() {
           >
             <span className={styles.exclude}>{exclude}</span>
             <span className={styles.exclude_end}>{exclude}</span>
-            <h1>Dentist Keramika</h1>
+            <h1>{t["main.hero_h"]}</h1>
             <div className={styles.intro_first_buttons}>
               <button
                 onClick={() => {
@@ -58,9 +59,9 @@ export function MainIntro() {
                   setIsModal(true);
                 }}
               >
-                Sotib olish
+                {t["main.hero_purchase"]}
               </button>
-              <button onClick={gobottom}>Aloqa</button>
+              <button onClick={gobottom}>{t["main.hero_contact_btn"]}</button>
             </div>
           </motion.div>
           <div className={styles.intro_last}>
@@ -79,7 +80,7 @@ export function MainIntro() {
               }}
             >
               {logo}
-              <p>Derek mahsuloti</p>
+              <p>{t["main.hero_derek_item"]}</p>
               <Image src={intromini} alt="background" className={styles.back} />
             </motion.div>
             <motion.div
@@ -98,7 +99,7 @@ export function MainIntro() {
             >
               <span className={styles.exclude}>{exclude}</span>
               <span className={styles.exclude_end}>{exclude}</span>
-              Derek Max 30 K
+              {t["main.hero_derek_max"]}
             </motion.div>
           </div>
           <Image src={bigOgriq} alt="background" />
@@ -119,10 +120,7 @@ export function MainIntro() {
         >
           {logo}
           <p>
-            em Ipsum has been the industry&apos;s standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only
-            five centuries, but{" "}
+            {t["main.hero_desc"]}
           </p>
         </motion.div>
       </div>

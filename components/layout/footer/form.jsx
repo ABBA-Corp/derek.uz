@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { IMaskInput } from "react-imask";
+import { TranslationsContext } from "../../../context/translations";
 import { formSvg } from "../../../public/icons";
 import { Toast } from "../../toast/toast";
 import styles from "./footer.module.css";
-
+import { useContext } from "react";
 export function FooterForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState("");
@@ -39,13 +40,13 @@ export function FooterForm() {
       })
       .catch((e) => console.log(e));
   };
-
+  const { t } = useContext(TranslationsContext);
   return (
     <>
       <form className={styles.footer_form} onSubmit={handleRequest}>
         <input
           type="text"
-          placeholder="Your name"
+          placeholder={t["footer.contact_name"]}
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -55,7 +56,7 @@ export function FooterForm() {
           <IMaskInput
             mask={"(00) 000 00 00"}
             type="text"
-            placeholder="Your number"
+            placeholder={t["footer.contact_number"]}
             value={number}
             onChange={(e) => setNumber(e.target.value)}
             required

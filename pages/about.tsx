@@ -14,37 +14,38 @@ import { gobottom, url } from "./_app";
 import { useContext } from "react";
 import { ModalContext } from "../context/modal";
 import aboutVideo from "../public/media/video.mp4";
+import { TranslationsContext } from "../context/translations";
 
 export default function AboutPage() {
   const { setInfo, setModalCase, setIsModal } = useContext(ModalContext);
   const { ref: statSection, inView: statSectionIsVisible } = useInView({
     triggerOnce: true,
   });
-
+  const { t } = useContext(TranslationsContext);
   const aboutStats = [
     {
-      title: "Uzoq vaqt davomida turishi",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_1"],
+      desc: t["main.smile_mini_desc1"],
       icon: kachok,
     },
     {
-      title: "Kosmetik tarafdan chiroyli",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_2"],
+      desc: t["main.smile_mini_desc2"],
       icon: tish,
     },
     {
-      title: "Anti alergik hususiyati",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_3"],
+      desc: t["main.smile_mini_desc3"],
       icon: mikrob,
     },
     {
-      title: "Odatiy tishlarga nisbatan 2 barobar mustahkamroq",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_4"],
+      desc: t["main.smile_mini_desc4"],
       icon: qalqon,
     },
     {
-      title: "Anti alergik hususiyati",
-      desc: "xt ever since the 1500s, when an unknown printer took a ",
+      title: t["main.smile_h_5"],
+      desc: t["main.smile_mini_desc5"],
       icon: mikrob,
     },
   ];
@@ -64,23 +65,12 @@ export default function AboutPage() {
               <p
                 className={`${styles.hero_title} animate__animated animate__fadeInLeft animate__delay-500ms`}
               >
-                Korxonamiz haqida
+                {t["about.h1"]}
               </p>
               <p
                 className={`${styles.hero_desc} animate__animated animate__fadeInLeft animate__delay-700ms`}
               >
-                sum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s, when an unknown printer took a
-                galley of type and scrambled it to make a type specimen book. It
-                has survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                pue the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not
-                only five centuries, but alsosum is simply dummy text of the
-                printing and typesetting industry. Lorem
+                {t["about.desc"]}
               </p>
             </div>
             <div
@@ -95,10 +85,10 @@ export default function AboutPage() {
                 }}
               >
                 <div>{play}</div>
-                <p>Video ro&apos;lik</p>
+                <p>{t["about.videobtn"]}</p>
               </button>
               <button className={styles.contact_btn} onClick={gobottom}>
-                Biz bilan aloqa
+                {t["about.contact_btn"]}
               </button>
             </div>
           </div>
@@ -111,7 +101,7 @@ export default function AboutPage() {
         >
           <div className={`miniBox ${styles.stats_inner}`}>
             <p className={`section_title ${styles.centered_title}`}>
-              Nega aynan Derek ?
+              {t["main.whyderek"]}?
             </p>
             <div className={styles.about_content}>
               <div className={styles.about_stats}>
@@ -128,14 +118,7 @@ export default function AboutPage() {
                 })}
               </div>
               <p className={styles.desc}>
-                sum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s, when an unknown printer took a
-                galley of type and scrambled it to make a type specimen book. It
-                has survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
+              {t["about.desc2"]}
               </p>
             </div>
           </div>

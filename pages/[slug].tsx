@@ -11,6 +11,7 @@ import Select from "react-select";
 import { productCheck } from "../public/icons";
 import noimage from "../public/media/noimage.png";
 import { ModalContext } from "../context/modal";
+import { TranslationsContext } from "../context/translations";
 
 export default function ProductInnerPage() {
   const router = useRouter();
@@ -97,6 +98,7 @@ export default function ProductInnerPage() {
     setWeight(option.value);
     getVariant();
   };
+  const { t } = useContext(TranslationsContext);
 
   return (
     <>
@@ -127,14 +129,14 @@ export default function ProductInnerPage() {
                 />
                 <div className={styles.product_content}>
                   <p className={styles.sotuvda_mavjud}>
-                    {productCheck} Sotuvda mavjud
+                    {productCheck} {t["product_inner.have"]}
                   </p>
                   <p className={styles.product_title}>
                     {product.product?.name}
                   </p>
                   <div className={styles.select_container}>
                     <div className={styles.select_div}>
-                      <p>Цвет:</p>
+                      <p>{t["product_inner.color"]}:</p>
                       <Select
                         defaultValue={color}
                         onChange={handleColorSelect}
@@ -143,7 +145,9 @@ export default function ProductInnerPage() {
                       ></Select>
                     </div>
                     <div className={styles.select_div}>
-                      <label htmlFor="massa">Масса:</label>
+                      <label htmlFor="massa">
+                        {t["product_inner.weight"]}:
+                      </label>
                       <Select
                         defaultValue={weight}
                         onChange={handleWeightSelect}
@@ -154,34 +158,42 @@ export default function ProductInnerPage() {
                   </div>
                   {isError ? (
                     <p className={styles.error_message}>
-                      There is no product with this option
+                      {t["product_inner.no_product"]}
                     </p>
                   ) : null}
                   <ul className={styles.product_info_list}>
                     <li className={styles.product_info_single}>
-                      <p className={styles.info_single_key}>Артикул:</p>
+                      <p className={styles.info_single_key}>
+                        {t["product_inner.code"]}:
+                      </p>
                       <p className={styles.info_single_value}>{product.code}</p>
                     </li>
                     <li className={styles.product_info_single}>
-                      <p className={styles.info_single_key}>Категория:</p>
+                      <p className={styles.info_single_key}>
+                        {t["product_inner.category"]}:
+                      </p>
                       <p className={styles.info_single_value}>
                         {product.product?.category.name}
                       </p>
                     </li>
                     <li className={styles.product_info_single}>
-                      <p className={styles.info_single_key}>Производитель:</p>
+                      <p className={styles.info_single_key}>
+                        {t["product_inner.manufacturer"]}:
+                      </p>
                       <p className={styles.info_single_value}>
                         {product.product?.manufacturer
                           ? product.product?.manufacturer
-                          : "Nichego ne naydeno"}
+                          : `${t["product_inner.nothing_found"]}`}
                       </p>
                     </li>
                     <li className={styles.product_info_single}>
-                      <p className={styles.info_single_key}>Тип:</p>
+                      <p className={styles.info_single_key}>
+                        {t["product_inner.type"]}:
+                      </p>
                       <p className={styles.info_single_value}>
                         {product.product?.type
                           ? product.product?.type
-                          : "Nichego ne naydeno"}
+                          : `${t["product_inner.nothing_found"]}`}
                       </p>
                     </li>
                   </ul>
@@ -199,7 +211,7 @@ export default function ProductInnerPage() {
                       setIsModal(true);
                     }}
                   >
-                    Купить в один клик
+                    {t["product_inner.buy_btn"]}
                   </button>
                 </div>
               </div>

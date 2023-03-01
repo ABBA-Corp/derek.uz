@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { star, swiperArrow } from "../../public/icons";
 import styles from "./feedbacks.module.css";
 import noimage from "../../public/media/noimage.png";
@@ -11,6 +11,7 @@ import { MotionSection } from "../main/motion-section";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { TranslationsContext } from "../../context/translations";
 
 export function Feedbacks() {
   const { locale } = useRouter();
@@ -40,12 +41,12 @@ export function Feedbacks() {
       })
       .catch((e) => console.log(e));
   }, [locale]);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className={`box ${styles.feedbacks_inner}`}>
         <div className={styles.inner_top}>
-          <h3 className="section_title">Mijozlarimiz fikr va mulohazalari</h3>
+          <h3 className="section_title">{t["main.feedbacks_h"]}</h3>
           <div className={styles.buttons}>
             <button
               ref={prevBtn}

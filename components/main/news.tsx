@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { swiperArrow } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,7 @@ import { NewsCard } from "../newsCard/newsCard";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { TranslationsContext } from "../../context/translations";
 
 export function MainNews() {
   const { locale } = useRouter();
@@ -41,12 +42,12 @@ export function MainNews() {
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
-
+  const { t } = useContext(TranslationsContext);
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className="box">
         <div className={styles.inner_top}>
-          <h3 className="section_title">Blog va yangiliklar</h3>
+          <h3 className="section_title">{t["main.blognewsh"]}</h3>
           <div className={styles.buttons}>
             <button
               ref={prevBtn}
@@ -99,10 +100,9 @@ export function MainNews() {
       </div>
       <div className={`box ${styles.new_divcha}`}>
         <p>
-          Лучшая компания в Ташкенте. Удобное расположение. Находится в центре
-          Ташкента.Лучшая компания в Ташкенте. Удобное
+          {t["main.blognews_desc"]}
         </p>
-        <Link href={"/news"}>Barcha yangiliklar</Link>
+        <Link href={"/news"}>{t["main.blogs_all"]}</Link>
       </div>
     </MotionSection>
   );

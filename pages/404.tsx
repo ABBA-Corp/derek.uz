@@ -4,8 +4,11 @@ import styles from "../styles/error.module.css";
 import errorImage from "../public/media/error-sim.jpg";
 import { CustomHead } from "../components/layout/head";
 import { url } from "./_app";
+import { useContext } from "react";
+import { TranslationsContext } from "../context/translations";
 
 export default function ErrorPage() {
+  const { t } = useContext(TranslationsContext);
   return (
     <>
       <CustomHead
@@ -18,12 +21,9 @@ export default function ErrorPage() {
           <div className={styles.content_container}>
             <div className={styles.inner_div}>
               <p>404</p>
-              <p>XATOLIK YUZ BERDI</p>
+              <p>{t["error.happened"]}</p>
             </div>
-            <p className={styles.desc}>
-              Ipsum has been the industry&apos;s standard dummy text ever since
-              the 1500s, when an unknown printer took a
-            </p>
+            <p className={styles.desc}>{t["error.desc"]}</p>
           </div>
           <Image
             src={errorImage}
@@ -31,7 +31,7 @@ export default function ErrorPage() {
             className={styles.error_img}
           />
           <Link href={"/"} className={styles.backhome}>
-            Go home
+            {t["error.gohome_btn"]}
           </Link>
         </div>
       </div>

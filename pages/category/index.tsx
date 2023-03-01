@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { TelegramBanner } from "../../components/banner/banner";
 import { CustomHead } from "../../components/layout/head";
 import { Layout } from "../../components/layout/layout";
 import { CategoryCard } from "../../components/main/categories";
+import { TranslationsContext } from "../../context/translations";
 import styles from "../../styles/home.module.css";
 import { url } from "../_app";
 
@@ -37,18 +38,18 @@ export default function CategoryPage() {
   const { ref: cardRef, inView: cardIsVisible } = useInView({
     triggerOnce: true,
   });
-
+  const { t } = useContext(TranslationsContext);
   return (
     <>
       <CustomHead
-        title={"Derek | All categories"}
-        desc={"Derek kompaniyasining barcha mahsulotlar kategoriyasi"}
+        title={`Derek | ${t["category.headh"]}`}
+        desc={t["category.head_desc"]}
         canonical={`${url}/category`}
       />
       <Layout>
         <section>
           <div className="miniBox">
-            <p className="section_title">Barcha kategoriyalar</p>
+            <p className="section_title">{t["category.headh"]}</p>
             <div className={`${styles.categories_grid_mini} withGray`}>
               {isLoading ? (
                 <>

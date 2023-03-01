@@ -130,7 +130,7 @@ export function Header({ isMenu, setIsMenu, isLangs, setIsLangs }: Props) {
                 setModalCase("post");
               }}
             >
-              Aloqa
+              {t["main.contactbtn"]}
             </button>
           </div>
         </div>
