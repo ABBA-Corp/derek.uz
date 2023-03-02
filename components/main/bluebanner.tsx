@@ -88,6 +88,42 @@ export function MainBlueBanner() {
             <Image src={logoMini} alt={"logo"} className={styles.onMobile} />
             <p>Kompaniyamiz haqida</p>
           </motion.div>
+
+          <motion.div
+            className={styles.bluebanner_last}
+            ref={div3}
+            initial="hidden"
+            animate={div3IsVisible ? "animation" : ""}
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              animation: {
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5, delay: 1.2 },
+              },
+            }}
+          >
+            <span className={styles.exclude}>{exclude}</span>
+            <span className={styles.exclude_end}>{exclude}</span>
+            <p className={styles.bluebanner_last_desc}>Free conculting</p>
+            <div className={styles.bluebanner_last_content}>
+              <p className={styles.bluebanner_last_desc}>
+                simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry&apos;s standard dummy text
+                ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It
+                wsimply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry&apos;s standard{" "}
+              </p>
+              <div className={styles.bluebanner_last_content_bottom}>
+                <p>Smile makeover</p>
+                <p>We believe in the power of your smile</p>
+              </div>
+            </div>
+          </motion.div>
+
           <motion.div
             className={styles.bluebanner_second}
             ref={div2}
@@ -132,40 +168,6 @@ export function MainBlueBanner() {
               </button>
               <button onClick={gobottom}>Bizning manzil</button>
             </nav>
-          </motion.div>
-          <motion.div
-            className={styles.bluebanner_last}
-            ref={div3}
-            initial="hidden"
-            animate={div3IsVisible ? "animation" : ""}
-            variants={{
-              hidden: { y: 40, opacity: 0 },
-              animation: {
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.5, delay: 1.2 },
-              },
-            }}
-          >
-            <span className={styles.exclude}>{exclude}</span>
-            <span className={styles.exclude_end}>{exclude}</span>
-            <p className={styles.bluebanner_last_desc}>Free conculting</p>
-            <div className={styles.bluebanner_last_content}>
-              <p className={styles.bluebanner_last_desc}>
-                simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry&apos;s standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It
-                wsimply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry&apos;s standard{" "}
-              </p>
-              <div className={styles.bluebanner_last_content_bottom}>
-                <p>Smile makeover</p>
-                <p>We believe in the power of your smile</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
