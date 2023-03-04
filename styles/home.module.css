@@ -998,10 +998,11 @@
   gap: 24px;
 }
 
-.content_grid_card_icon svg {
+.content_grid_card_icon img {
+  display: inline-block;
   width: 65px;
   height: 40px;
-  color: var(--black);
+  object-fit: contain;
 }
 
 .content_grid_card_info {
