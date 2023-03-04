@@ -6,48 +6,56 @@ import mainImage from "../../public/media/fade_img.png";
 import { kachok, mikrob, qalqon, tish } from "../../public/icons";
 import { useContext } from "react";
 import { TranslationsContext } from "../../context/translations";
+import img6 from "../../public/media/img6.png";
+import img5 from "../../public/media/img5.png";
+import img4 from "../../public/media/img4.png";
+import img3 from "../../public/media/img3.png";
+import img2 from "../../public/media/img2.png";
+import img1 from "../../public/media/img1.png";
 
 export function MainWhyDerek() {
   const { ref: section, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
   });
+
   const { t } = useContext(TranslationsContext);
+
   const gridCards = [
     {
       id: 1,
-      title: t["main.smile_h_1"],
-      desc: t["main.smile_mini_desc1"],
-      icon: kachok,
+      title: t["stats.stat1_title"],
+      desc: t["stats.stat1_desc"],
+      icon: img1,
     },
     {
       id: 2,
-      title: t["main.smile_h_2"],
-      desc: t["main.smile_mini_desc2"],
-      icon: tish,
+      title: t["stats.stat2_title"],
+      desc: t["stats.stat2_desc"],
+      icon: img2,
     },
     {
       id: 3,
-      title: t["main.smile_h_3"],
-      desc: t["main.smile_mini_desc3"],
-      icon: mikrob,
+      title: t["stats.stat3_title"],
+      desc: t["stats.stat3_desc"],
+      icon: img3,
     },
     {
       id: 4,
-      title: t["main.smile_h_4"],
-      desc: t["main.smile_mini_desc4"],
-      icon: qalqon,
+      title: t["stats.stat4_title"],
+      desc: t["stats.stat4_desc"],
+      icon: img4,
     },
     {
       id: 5,
-      title: t["main.smile_h_5"],
-      desc: t["main.smile_mini_desc5"],
-      icon: qalqon,
+      title: t["stats.stat5_title"],
+      desc: t["stats.stat5_desc"],
+      icon: img5,
     },
     {
       id: 6,
-      title: t["main.smile_h_6"],
-      desc: t["main.smile_mini_desc6"],
-      icon: mikrob,
+      title: t["stats.stat6_title"],
+      desc: t["stats.stat6_desc"],
+      icon: img6,
     },
   ];
 
@@ -70,7 +78,7 @@ export function MainWhyDerek() {
               return (
                 <div key={card.id} className={styles.content_grid_card}>
                   <span className={styles.content_grid_card_icon}>
-                    {card.icon}
+                    <Image src={card.icon} alt={card.title} />
                   </span>
                   <div className={styles.content_grid_card_info}>
                     <p className={styles.content_grid_card_title}>

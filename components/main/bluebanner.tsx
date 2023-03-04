@@ -89,6 +89,35 @@ export function MainBlueBanner() {
             <Image src={logoMini} alt={"logo"} className={styles.onMobile} />
             <p>{t["main.aboutour_company"]}</p>
           </motion.div>
+
+          <motion.div
+            className={styles.bluebanner_last}
+            ref={div3}
+            initial="hidden"
+            animate={div3IsVisible ? "animation" : ""}
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              animation: {
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5, delay: 1.2 },
+              },
+            }}
+          >
+            <span className={styles.exclude}>{exclude}</span>
+            <span className={styles.exclude_end}>{exclude}</span>
+            <p className={styles.bluebanner_last_desc}>{t["main.aboutfree"]}</p>
+            <div className={styles.bluebanner_last_content}>
+              <p className={styles.bluebanner_last_desc}>
+                {t["main.blue_desc"]}
+              </p>
+              <div className={styles.bluebanner_last_content_bottom}>
+                <p>Smile makeover</p>
+                <p>We believe in the power of your smile</p>
+              </div>
+            </div>
+          </motion.div>
+
           <motion.div
             className={styles.bluebanner_second}
             ref={div2}
@@ -133,33 +162,6 @@ export function MainBlueBanner() {
               </button>
               <button onClick={gobottom}>{t["main.our_location"]}</button>
             </nav>
-          </motion.div>
-          <motion.div
-            className={styles.bluebanner_last}
-            ref={div3}
-            initial="hidden"
-            animate={div3IsVisible ? "animation" : ""}
-            variants={{
-              hidden: { y: 40, opacity: 0 },
-              animation: {
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.5, delay: 1.2 },
-              },
-            }}
-          >
-            <span className={styles.exclude}>{exclude}</span>
-            <span className={styles.exclude_end}>{exclude}</span>
-            <p className={styles.bluebanner_last_desc}>{t["main.aboutfree"]}</p>
-            <div className={styles.bluebanner_last_content}>
-              <p className={styles.bluebanner_last_desc}>
-                {t["main.blue_desc"]}
-              </p>
-              <div className={styles.bluebanner_last_content_bottom}>
-                <p>Smile makeover</p>
-                <p>We believe in the power of your smile</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

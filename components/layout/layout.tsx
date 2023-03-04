@@ -25,6 +25,7 @@ export function Layout({ children }: Props) {
 
       if (eventclass == "popup show") {
         setIsLangs(false);
+        setIsMenu(false);
       }
     });
   }, []);

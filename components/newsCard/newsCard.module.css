@@ -73,10 +73,20 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 880px) {
+  .card {
+    min-height: 280px;
+  }
+  .card_img {
+    height: 160px;
+  }
+}
+
 @media (max-width: 580px) {
   .card {
     padding: 8px;
     gap: 8px;
+    min-height: 200px;
   }
   .card_content {
     gap: 8px;
