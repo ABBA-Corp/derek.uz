@@ -39,4 +39,4 @@ jobs:
           npm --prefix /home/front/derek.uz/ install /home/front/derek.uz/
           npm --prefix /home/front/derek.uz/ run build
           sh /home/devops/derek_front.sh "${{ github.event.head_commit.message }}"
-          pm2 reload derek.itlink.uz
+          pm2 reload derekdental.com
