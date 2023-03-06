@@ -471,17 +471,12 @@
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background-color: #a7b7b5;
   overflow: hidden;
 }
 
-.category_banner_inner img {
-  position: absolute;
-  top: 0;
-  left: 0;
+.new_div img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
 }
 
 /* === MainMiddleBanner === */
@@ -1088,8 +1083,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   transform: rotate(-90deg);
 }
 
@@ -1275,6 +1268,15 @@
 }
 
 @media (max-width: 580px) {
+  .svg,
+  .animation,
+  .animation_box {
+    width: 60px;
+    height: 60px;
+  }
+  .animation {
+    font-size: 24px;
+  }
   .section {
     padding-top: 40px;
   }
@@ -1333,10 +1335,10 @@
   }
   .middle_first,
   .middle_last {
-    padding: 24px;
+    padding: 20px;
   }
   .middle_first_inner {
-    gap: 24px;
+    gap: 16px;
   }
   .middle_first_title {
     font-size: 24px;

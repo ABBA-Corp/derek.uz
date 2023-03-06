@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { MotionSection } from "./motion-section";
 import styles from "../../styles/home.module.css";
-import catimg from "../../public/media/banner_cat.png";
+import catimg from "../../public/media/banner_cat.jpeg";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
