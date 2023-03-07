@@ -53,7 +53,7 @@ export function Footer() {
       id: 1,
       title: "youtube",
       icon: youtube,
-      url: siteInfo.youtube,
+      url: "#",
     },
     {
       id: 2,
@@ -71,7 +71,7 @@ export function Footer() {
       id: 4,
       title: "facebook",
       icon: facebook,
-      url: siteInfo.facebook,
+      url: "#",
     },
   ];
 
@@ -119,7 +119,7 @@ export function Footer() {
           <p className={styles.motto}>{t["main.smile_makeover"]}</p>
           <nav className={styles.bottom_nav_container}>
             <div className={styles.nav_top}>
-              <div className={styles.nav_top__div}>
+              {/* <div className={styles.nav_top__div}>
                 <p className={styles.nav_top__title}>United States</p>
                 <nav className={styles.nav_top__nav}>
                   <p>
@@ -127,22 +127,19 @@ export function Footer() {
                     1-877-926-5184
                   </p>
                 </nav>
-              </div>
+              </div> */}
               <div className={styles.nav_top__div}>
-                <p className={styles.nav_top__title}>Netherlands</p>
+                <p className={styles.nav_top__title}>{t["main.country"]}</p>
                 <nav className={styles.nav_top__nav}>
-                  <p>
-                    71 South Los Carneros Road, Goleta, California 93117
-                    1-877-926-5184
-                  </p>
+                  <p>{siteInfo.adres}</p>
                 </nav>
               </div>
               <div className={styles.nav_top__div}>
                 <nav className={styles.nav_top__nav}>
                   <p>{t["footer.privacy_policy"]}</p>
                   <p>{t["footer.terms_of"]}</p>
-                  <p>{t["footer.compliance"]}</p>
-                  <p>{t["footer.cookie"]}</p>
+                  {/* <p>{t["footer.compliance"]}</p> */}
+                  {/* <p>{t["footer.cookie"]}</p> */}
                 </nav>
               </div>
             </div>

@@ -3,7 +3,9 @@ import { useInView } from "react-intersection-observer";
 import styles from "../../styles/home.module.css";
 import { MotionSection } from "./motion-section";
 import logo from "../../public/media/footer_derek.png";
-import myVideo from "../../public/media/video.mp4";
+import myVideo1 from "../../public/media/video1.mp4";
+import myVideo2 from "../../public/media/video2.mp4";
+import myVideo3 from "../../public/media/video3.mp4";
 import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../context/modal";
 import { TranslationsContext } from "../../context/translations";
@@ -21,19 +23,19 @@ export function MainMiddleBanner() {
       id: 1,
       title: t["main.step1_title"],
       description: t["main.step1_desc"],
-      image: myVideo,
+      image: myVideo1,
     },
     {
       id: 2,
       title: t["main.step2_title"],
       description: t["main.step2_desc"],
-      image: myVideo,
+      image: myVideo2,
     },
     {
       id: 3,
       title: t["main.step3_title"],
       description: t["main.step3_desc"],
-      image: myVideo,
+      image: myVideo3,
     },
   ];
 
@@ -52,11 +54,11 @@ export function MainMiddleBanner() {
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className={`box ${styles.middle_inner}`}>
-        {content.map((c) => {
+        {content.map((c: any, i: number) => {
           if (currentTab === c.id) {
             return (
               <>
-                <div key={c.id} className={styles.middle_first}>
+                <div className={styles.middle_first}>
                   <div className={styles.middle_first_content}>
                     <div className={styles.middle_first_inner}>
                       <div className={styles.animation_box}>
