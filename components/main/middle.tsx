@@ -7,6 +7,7 @@ import myVideo from "../../public/media/video.mp4";
 import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../context/modal";
 import { TranslationsContext } from "../../context/translations";
+import { gobottom } from "../../pages/_app";
 
 export function MainMiddleBanner() {
   const { t } = useContext(TranslationsContext);
@@ -114,14 +115,7 @@ export function MainMiddleBanner() {
             >
               {t["main.leave_comment"]}
             </button>
-            <button
-              onClick={() => {
-                setModalCase("post");
-                setIsModal(true);
-              }}
-            >
-              {t["main.contactwithus"]}
-            </button>
+            <button onClick={gobottom}>{t["main.contactwithus"]}</button>
           </div>
         </div>
       </div>

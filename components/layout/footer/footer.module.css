@@ -121,15 +121,15 @@
 
 .footer_bottom {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
 .motto {
   max-width: 520px;
   width: 100%;
-  font-size: 100px;
-  line-height: 85px;
+  font-size: 60px;
+  line-height: 70px;
   letter-spacing: -0.03rem;
   color: var(--white);
   font-weight: 700;
@@ -220,9 +220,6 @@
 }
 
 @media (max-width: 1800px) {
-  .motto {
-    font-size: 80px;
-  }
   .footer_middle {
     padding: 16px;
   }
@@ -247,6 +244,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 48px;
   }
+  .footer_bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -254,14 +256,9 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .footer_bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-  }
   .motto {
-    font-size: 60px;
-    line-height: 72px;
+    font-size: 50px;
+    line-height: 60px;
   }
   .nav_top {
     grid-template-columns: repeat(3, 1fr);

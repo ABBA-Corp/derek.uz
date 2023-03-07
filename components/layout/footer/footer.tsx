@@ -74,6 +74,7 @@ export function Footer() {
       url: siteInfo.facebook,
     },
   ];
+
   const { t } = useContext(TranslationsContext);
 
   return (

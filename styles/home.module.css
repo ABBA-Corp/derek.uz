@@ -877,10 +877,10 @@
 }
 
 .bluebanner_last_content_bottom p:first-child {
-  font-size: 100px;
-  line-height: 85px;
+  font-size: 60px;
+  line-height: 70px;
   font-weight: 700;
-  max-width: 515px;
+  max-width: 520px;
 }
 
 .bluebanner_last_content_bottom p:last-child {
@@ -889,6 +889,7 @@
   font-weight: 700;
   max-width: 270px;
   margin-bottom: 4px;
+  display: none;
 }
 
 /* === WHY DEREK === */
@@ -1126,9 +1127,6 @@
     font-size: 32px;
     line-height: 36px;
   }
-  .bluebanner_last_content_bottom p:first-child {
-    font-size: 80px;
-  }
 }
 
 @media (max-width: 1200px) {
@@ -1251,9 +1249,8 @@
     position: relative;
   }
   .bluebanner_last_content_bottom p:first-child {
-    font-size: 54px;
+    font-size: 50px;
     line-height: 46px;
-    max-width: 10%;
   }
   .bluebanner_last_content_bottom p:last-child {
     position: absolute;
