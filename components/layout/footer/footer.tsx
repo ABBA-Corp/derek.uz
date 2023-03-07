@@ -115,7 +115,7 @@ export function Footer() {
           <FooterForm />
         </div>
         <div className={styles.footer_bottom}>
-          <p className={styles.motto}>Smile makeover</p>
+          <p className={styles.motto}>{t["main.smile_makeover"]}</p>
           <nav className={styles.bottom_nav_container}>
             <div className={styles.nav_top}>
               <div className={styles.nav_top__div}>

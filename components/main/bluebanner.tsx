@@ -112,8 +112,8 @@ export function MainBlueBanner() {
                 {t["main.blue_desc"]}
               </p>
               <div className={styles.bluebanner_last_content_bottom}>
-                <p>Smile makeover</p>
-                <p>We believe in the power of your smile</p>
+                <p>{t["main.smile_makeover"]}</p>
+                <p>{t["main.smile_bluedesc"]}</p>
               </div>
             </div>
           </motion.div>
