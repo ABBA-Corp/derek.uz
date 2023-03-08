@@ -7,10 +7,11 @@ import styles from "../styles/results.module.css";
 import { SearchNewsCard } from "../components/newsCard/newsCard";
 import { SearchCategoryCard } from "../components/main/categories";
 import { SearchProductCard } from "../components/productCard/productCard";
+import { TranslationsContext } from "../context/translations";
 
 export default function SearchResultsPage() {
   const { results } = useContext(ModalContext);
-  // console.log(results);
+  const { t } = useContext(TranslationsContext);
 
   return (
     <>
@@ -22,7 +23,7 @@ export default function SearchResultsPage() {
       <Layout>
         <section>
           <div className={`box ${styles.section_inner}`}>
-            <h3 className="section_title">Search results</h3>
+            <h3 className="section_title">{t["search.title"]}</h3>
             <div className={styles.results_container}>
               {results.articles && results.articles.length > 0 ? (
                 <div className={`mainGrid`}>
@@ -31,7 +32,7 @@ export default function SearchResultsPage() {
                   })}
                 </div>
               ) : (
-                <p>Nichego naydeno po vashemu zaprosu v novostyax</p>
+                <p>{t["search.text1"]}</p>
               )}
 
               {results.categories && results.categories.length > 0 ? (
@@ -47,7 +48,7 @@ export default function SearchResultsPage() {
                   })}
                 </div>
               ) : (
-                <p>Nichego naydeno po vashemu zaprosu v kategoriyax</p>
+                <p>{t["search.text2"]}</p>
               )}
               {results.products && results.products.length > 0 ? (
                 <div className={`mainGrid`}>
@@ -58,7 +59,7 @@ export default function SearchResultsPage() {
                   })}
                 </div>
               ) : (
-                <p>Nichego naydeno po vashemu zaprosu v productax</p>
+                <p>{t["search.text3"]}</p>
               )}
             </div>
           </div>

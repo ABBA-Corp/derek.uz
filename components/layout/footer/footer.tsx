@@ -160,9 +160,7 @@ export function Footer() {
                 })}
               </div>
               <div className={styles.copy_div}>
-                <p>
-                  &copy; {new Date().getFullYear()}, {t["footer.apeel"]}.
-                </p>
+                <p>&copy; {new Date().getFullYear()}.</p>
                 <p>{t["footer.allright"]}.</p>
               </div>
             </div>

@@ -36,7 +36,9 @@ export function MainCategories() {
       })
       .catch((e) => console.log(e));
   }, []);
+
   const { t } = useContext(TranslationsContext);
+
   return (
     <MotionSection motionRef={section} motionBoolean={sectionIsVisible}>
       <div className="box">
@@ -53,6 +55,8 @@ export function MainCategories() {
                 href={siteInfo.cotalog}
                 aria-label="download"
                 className={styles.download_link}
+                target={"_blank"}
+                rel="noreferrer"
               >
                 {t["main.categories_download"]}
               </a>

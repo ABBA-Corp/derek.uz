@@ -7,9 +7,9 @@ import styles from "../../styles/category.module.css";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import noimage from "../../public/media/noimage.png";
 import { url } from "../_app";
 import { TranslationsContext } from "../../context/translations";
+import { ProductCard } from "../../components/productCard/productCard";
 
 export default function SingleCategory() {
   const router = useRouter();
@@ -17,10 +17,20 @@ export default function SingleCategory() {
   const { id } = router.query;
 
   const [category, setCategory] = useState<any>({});
+  const [products, setProducts] = useState<object[]>([]);
 
   async function getSingleCategory(id: string | any) {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_ENDPOINT}/categories/${id}`,
+      { headers: { language: router.locale } }
+    );
+    const data = await res.data;
+    return data;
+  }
+
+  async function getProducts(categoryId: any) {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_ENDPOINT}/products?category=${categoryId}`,
       { headers: { language: router.locale } }
     );
     const data = await res.data;
@@ -34,6 +44,11 @@ export default function SingleCategory() {
           setCategory(res);
         })
         .catch(() => router.push("/404"));
+      getProducts(id)
+        .then((res) => {
+          setProducts(res.results);
+        })
+        .catch((e) => console.log(e));
     }
   }, [router]);
   const { t } = useContext(TranslationsContext);
@@ -57,6 +72,8 @@ export default function SingleCategory() {
                 href={category.cotalog}
                 aria-label="download"
                 className={styles.download_btn}
+                target={"_blank"}
+                rel={"noreferrer"}
               >
                 {t["category.download_btn"]}
               </a>
@@ -74,7 +91,26 @@ export default function SingleCategory() {
             </div>
           </div>
         </section>
-        <Products parentID={category.id} categoryTitle={category.name} />
+        <section className="section">
+          <div className="box">
+            <h3 className="section_title">
+              {category.name} {t["category.productp1"]}
+            </h3>
+            <div className="mainGrid withGray">
+              {products.length > 0
+                ? products.map((product: any, i: number) => {
+                    return (
+                      <ProductCard
+                        key={i}
+                        product={product}
+                        slug={product.slug}
+                      />
+                    );
+                  })
+                : null}
+            </div>
+          </div>
+        </section>
         <Feedbacks />
       </Layout>
     </>

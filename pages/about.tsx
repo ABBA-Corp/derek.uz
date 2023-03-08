@@ -22,6 +22,7 @@ export default function AboutPage() {
     triggerOnce: true,
   });
   const { t } = useContext(TranslationsContext);
+
   const aboutStats = [
     {
       title: t["main.smile_h_1"],
@@ -59,7 +60,7 @@ export default function AboutPage() {
       />
       <Layout>
         <section className={styles.hero}>
-          <Location currentPage={"About"} />
+          <Location currentPage={t["main.about"]} />
           <div className={`miniBox ${styles.hero_inner}`}>
             <div className={styles.hero_info}>
               <p
@@ -117,9 +118,7 @@ export default function AboutPage() {
                   );
                 })}
               </div>
-              <p className={styles.desc}>
-              {t["about.desc2"]}
-              </p>
+              <p className={styles.desc}>{t["about.desc2"]}</p>
             </div>
           </div>
         </MotionSection>

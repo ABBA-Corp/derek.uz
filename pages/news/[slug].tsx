@@ -6,11 +6,12 @@ import styles from "../../styles/news.module.css";
 import Image from "next/image";
 import { share } from "../../public/icons";
 import { CustomHead } from "../../components/layout/head";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Toast } from "../../components/toast/toast";
 import axios from "axios";
 import noimage from "../../public/media/noimage.png";
 import { url } from "../_app";
+import { TranslationsContext } from "../../context/translations";
 
 export default function NewsInnerpage() {
   const router = useRouter();
@@ -19,6 +20,8 @@ export default function NewsInnerpage() {
 
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const { t } = useContext(TranslationsContext);
 
   async function getSingleNews(slug: string | any) {
     const res = await axios.get(
@@ -64,7 +67,7 @@ export default function NewsInnerpage() {
       <Layout>
         <Location
           currentPage={news.title}
-          parentPage={{ text: "News", url: "/news" }}
+          parentPage={{ text: t["main.yangiliklar"], url: "/news" }}
         />
         <section>
           <div className={`miniBox`}>

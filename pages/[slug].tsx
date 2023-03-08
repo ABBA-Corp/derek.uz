@@ -44,7 +44,7 @@ export default function ProductInnerPage() {
           setOrder(res);
           setWeight(res.atributs[0].options[0].id);
         })
-        .catch(() => router.push("/404"));
+        .catch((e) => console.log(e));
     }
   }, [router.query]);
 

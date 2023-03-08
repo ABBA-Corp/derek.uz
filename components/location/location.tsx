@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { TranslationsContext } from "../../context/translations";
 import { arrowLeft } from "../../public/icons";
 import styles from "./location.module.css";
 
@@ -11,6 +13,8 @@ type Props = {
 };
 
 export function Location({ currentPage, parentPage }: Props) {
+  const { t } = useContext(TranslationsContext);
+
   return (
     <section>
       <div className={`miniBox`}>
@@ -19,11 +23,11 @@ export function Location({ currentPage, parentPage }: Props) {
             href={parentPage ? parentPage.url : "/"}
             className={styles.back_button}
           >
-            {arrowLeft} Back
+            {arrowLeft} {t["main.nazad"]}
           </Link>
           <nav className={styles.nav}>
             <Link href={"/"} className={styles.element}>
-              Main
+              {t["main.asosiy"]}
             </Link>
             <span className={styles.element}>/</span>
             {parentPage ? (

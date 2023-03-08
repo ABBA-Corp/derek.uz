@@ -27,7 +27,7 @@ export function MainProducts() {
 
   async function getProducts() {
     const res = await axios.get(
-      process.env.NEXT_PUBLIC_ENDPOINT + "/products",
+      process.env.NEXT_PUBLIC_ENDPOINT + "/top_produts",
       { headers: { language: locale } }
     );
     const data = await res.data;

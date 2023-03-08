@@ -106,7 +106,7 @@ export function MainBlueBanner() {
           >
             <span className={styles.exclude}>{exclude}</span>
             <span className={styles.exclude_end}>{exclude}</span>
-            <p className={styles.bluebanner_last_desc}>{t["main.aboutfree"]}</p>
+            {/* <p className={styles.bluebanner_last_desc}>{t["main.aboutfree"]}</p> */}
             <div className={styles.bluebanner_last_content}>
               <p className={styles.bluebanner_last_desc}>
                 {t["main.blue_desc"]}

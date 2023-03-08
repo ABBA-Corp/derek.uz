@@ -209,7 +209,7 @@
 
 .copy_div {
   display: flex;
-  flex-direction: column;
+  gap: 4px;
 }
 
 .copy_div p {
