@@ -45,11 +45,7 @@ export function MainCategories() {
         <h3 className="section_title">{t["main.categories_h"]}</h3>
         <div className={`withGray ${styles.categories_grid}`}>
           <div className={styles.categories_intro}>
-            <p>
-              {t["main.categories_desc1"]}{" "}
-              <b>{t["main.categories_desc_bold"]}</b>{" "}
-              {t["main.categories_desc3"]}
-            </p>
+            <p>{t["main.categories_desc1"]}</p>
             <div className={styles.categories_intro__links}>
               <a
                 href={siteInfo.cotalog}
