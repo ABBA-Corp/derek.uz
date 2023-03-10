@@ -167,6 +167,16 @@ export function Footer() {
           </nav>
         </div>
       </div>
+      <div className={styles.yangisi}>
+        <div className={styles.yangisi_inner}>
+          <p>
+            Copyright &copy; Derek | Designed by <span>abba marketing</span>
+          </p>
+          <p>
+            - Powered by <span>ABBA</span>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

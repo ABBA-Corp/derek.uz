@@ -219,6 +219,31 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+.yangisi {
+  background-color: var(--white);
+  display: grid;
+  place-items: center;
+}
+
+.yangisi_inner {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-block: 24px;
+  padding-inline: 16px;
+}
+
+.yangisi_inner p,
+.yangisi_inner span {
+  font-size: 18px;
+  line-height: 30px;
+  color: #656565;
+}
+
+.yangisi_inner span {
+  color: var(--light-blue);
+}
+
 @media (max-width: 1800px) {
   .footer_middle {
     padding: 16px;
@@ -248,6 +273,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
+  }
+  .yangisi_inner p,
+  .yangisi_inner span {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -312,5 +342,15 @@
   .nav_top,
   .nav_bottom {
     grid-template-columns: 1fr 1fr;
+  }
+  .yangisi_inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .yangisi_inner p,
+  .yangisi_inner span {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
   }
 }
