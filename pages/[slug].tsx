@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { CustomHead } from "../components/layout/head";
 import { Layout } from "../components/layout/layout";
-import { Products } from "../components/products/product";
 import styles from "../styles/product.module.css";
 import { url } from "./_app";
 import Select from "react-select";
@@ -12,6 +11,7 @@ import { productCheck } from "../public/icons";
 import noimage from "../public/media/noimage.png";
 import { ModalContext } from "../context/modal";
 import { TranslationsContext } from "../context/translations";
+import { ProductCard } from "../components/productCard/productCard";
 
 export default function ProductInnerPage() {
   const router = useRouter();
@@ -26,10 +26,21 @@ export default function ProductInnerPage() {
   const [weight, setWeight] = useState(0);
 
   const [product, setProduct] = useState<any>({});
+  const [products, setProducts] = useState<object[]>([]);
+  const [categoryName, setCategoryName] = useState<string>("");
 
   async function getProduct(slug: string | any) {
     const res = await axios.get(
       `${process.env.NEXT_PUBLIC_ENDPOINT}/products/${slug}`,
+      { headers: { language: router.locale } }
+    );
+    const data = await res.data;
+    return data;
+  }
+
+  async function getProducts(categoryId: any) {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_ENDPOINT}/products?category=${categoryId}`,
       { headers: { language: router.locale } }
     );
     const data = await res.data;
@@ -42,11 +53,17 @@ export default function ProductInnerPage() {
         .then((res) => {
           setProduct(res);
           setOrder(res);
-          setWeight(res.atributs[0].options[0].id);
+          setWeight(res.atributs.length > 0 && res.atributs[0].options[0].id);
+          setCategoryName(res.product.category.name);
+          getProducts(res.product.category.id)
+            .then((res) => {
+              setProducts(res.results);
+            })
+            .catch((e) => console.log(e));
         })
         .catch((e) => console.log(e));
     }
-  }, [router.query]);
+  }, [router.query, router.locale]);
 
   async function checkVariant() {
     const res = await axios.get(
@@ -98,6 +115,7 @@ export default function ProductInnerPage() {
     setWeight(option.value);
     getVariant();
   };
+
   const { t } = useContext(TranslationsContext);
 
   return (
@@ -224,7 +242,26 @@ export default function ProductInnerPage() {
             </div>
           </section>
         )}
-        <Products />
+        <section className="section">
+          <div className="box">
+            <h3 className="section_title">
+              {categoryName} {t["category.productp1"]}
+            </h3>
+            <div className="mainGrid withGray">
+              {products && products.length > 0
+                ? products.map((product: any, i: number) => {
+                    return (
+                      <ProductCard
+                        key={i}
+                        product={product}
+                        slug={product.slug}
+                      />
+                    );
+                  })
+                : null}
+            </div>
+          </div>
+        </section>
       </Layout>
     </>
   );

@@ -51,7 +51,9 @@ export default function SingleCategory() {
         .catch((e) => console.log(e));
     }
   }, [router]);
+
   const { t } = useContext(TranslationsContext);
+
   return (
     <>
       <CustomHead
