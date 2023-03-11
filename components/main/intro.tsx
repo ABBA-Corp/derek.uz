@@ -1,7 +1,7 @@
 import styles from "../../styles/home.module.css";
 import Image from "next/image";
 import bigOgriq from "../../public/media/tish_back.png";
-import intromini from "../../public/media/intro_mini.png";
+import intromini from "../../public/media/intro_mini.jpg";
 import { exclude, logo } from "../../public/icons";
 import { useContext } from "react";
 import { ModalContext } from "../../context/modal";
@@ -119,9 +119,7 @@ export function MainIntro() {
           }}
         >
           {logo}
-          <p>
-            {t["main.hero_desc"]}
-          </p>
+          <p>{t["main.hero_desc"]}</p>
         </motion.div>
       </div>
     </section>
