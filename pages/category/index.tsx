@@ -68,10 +68,9 @@ export default function CategoryPage() {
                     <CategoryCard
                       key={i}
                       i={i}
+                      category={category}
                       cardRef={cardRef}
                       cardIsVisible={cardIsVisible}
-                      id={category.id}
-                      title={category.name}
                     />
                   );
                 })

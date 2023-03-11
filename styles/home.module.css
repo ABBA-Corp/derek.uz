@@ -21,16 +21,10 @@
   overflow: hidden;
   z-index: 0;
   position: relative;
-}
-
-.intro_grid__left > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
+  background-image: url("../public/media/tish_back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top right;
 }
 
 .mask {
@@ -1075,6 +1069,11 @@
   place-items: center;
 }
 
+.category img {
+  width: 50px;
+  height: 55px;
+}
+
 .svg {
   width: 100px;
   height: 100px;
@@ -1277,15 +1276,43 @@
     padding-top: 40px;
   }
   .intro_first {
+    justify-content: flex-end;
     align-items: center;
+    height: 100%;
+    gap: 30px;
   }
   .intro_first h1 {
     text-align: center;
   }
+  .intro__mini,
+  .mask_left,
+  .exclude_bl,
+  .exclude_br,
+  .exclude_tl,
+  .intro_last {
+    display: none;
+  }
+  .intro_first {
+    padding-bottom: 44px;
+  }
+  .intro_first .exclude_end,
+  .intro_first .exclude {
+    top: 110px;
+    bottom: auto;
+  }
+  .intro_grid__left {
+    height: 770px;
+    gap: 0px;
+  }
+  .mask {
+    top: 120px;
+    bottom: auto;
+  }
   .intro_first_buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     width: 100%;
+    gap: 16px;
   }
   .categories_grid,
   .categories_grid_mini {
@@ -1303,10 +1330,6 @@
   }
   .skeleton {
     height: 120px;
-  }
-  .category img {
-    height: 32px;
-    width: 40px;
   }
   .categories_intro__links {
     display: flex;

@@ -35,10 +35,11 @@
 }
 
 .product_content {
+  flex: 1 1 auto;
   padding-top: 10px;
   color: var(--black);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
 }

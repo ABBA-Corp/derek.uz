@@ -82,6 +82,8 @@ export function NewsCard({ i, cardRef, cardIsVisible, slug, news }: Props) {
 }
 
 export const SearchNewsCard = ({ article }: { article: any }) => {
+  console.log(article);
+
   return (
     <Link href={`/news/${article.slug}`} className={styles.card}>
       <div className={styles.card_img}>

@@ -10,6 +10,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { SiteInfoContext } from "../../context/siteinfo";
 import { TranslationsContext } from "../../context/translations";
+import notish from "../../public/media/img2.png";
 
 export function MainCategories() {
   const { locale } = useRouter();
@@ -62,9 +63,7 @@ export function MainCategories() {
             </div>
           </div>
           {categories.map((category: any, i: number) => {
-            return (
-              <CategoryCard key={i} id={category.id} title={category.name} />
-            );
+            return <CategoryCard key={i} category={category} />;
           })}
           <Link
             href={`/category`}
@@ -80,16 +79,14 @@ export function MainCategories() {
 }
 
 type Props = {
-  id: number;
-  title: string | any;
+  category: any;
   i?: number;
   cardRef?: any;
   cardIsVisible?: boolean;
 };
 
 export const CategoryCard = ({
-  id,
-  title,
+  category,
   i,
   cardRef,
   cardIsVisible,
@@ -105,9 +102,14 @@ export const CategoryCard = ({
 
   if (isMobile || pathname === "/") {
     return (
-      <Link href={`/category/${id}`} className={styles.category}>
-        {tish}
-        <p className={styles.category_title}>{title}</p>
+      <Link href={`/category/${category.id}`} className={styles.category}>
+        <Image
+          src={category.icon ? category.icon : notish}
+          alt={category.name}
+          width={43}
+          height={48}
+        />
+        <p className={styles.category_title}>{category.name}</p>
       </Link>
     );
   }
@@ -126,25 +128,29 @@ export const CategoryCard = ({
         },
       }}
     >
-      <Link href={`/category/${id}`} className={styles.category}>
-        {tish}
-        <p className={styles.category_title}>{title}</p>
+      <Link href={`/category/${category.id}`} className={styles.category}>
+        <Image
+          src={category.icon ? category.icon : notish}
+          alt={category.name}
+          width={43}
+          height={48}
+        />
+        <p className={styles.category_title}>{category.name}</p>
       </Link>
     </motion.div>
   );
 };
 
-export const SearchCategoryCard = ({
-  id,
-  title,
-}: {
-  id: number;
-  title: string;
-}) => {
+export const SearchCategoryCard = ({ category }: { category: any }) => {
   return (
-    <Link href={`/category/${id}`} className={styles.category}>
-      {tish}
-      <p className={styles.category_title}>{title}</p>
+    <Link href={`/category/${category.id}`} className={styles.category}>
+      <Image
+        src={category.icon ? category.icon : notish}
+        alt={category.name}
+        width={43}
+        height={48}
+      />
+      <p className={styles.category_title}>{category.name}</p>
     </Link>
   );
 };

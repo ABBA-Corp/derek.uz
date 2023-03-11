@@ -117,7 +117,7 @@
   color: var(--black);
 }
 
-.info_single_value:hover {
+a.info_single_value {
   text-decoration: underline;
 }
 

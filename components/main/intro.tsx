@@ -102,7 +102,7 @@ export function MainIntro() {
               {t["main.hero_derek_max"]}
             </motion.div>
           </div>
-          <Image src={bigOgriq} alt="background" />
+          {/* <Image src={bigOgriq} alt="background" /> */}
         </div>
         <motion.div
           className={styles.intro_big}

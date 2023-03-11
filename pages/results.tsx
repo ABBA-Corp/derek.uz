@@ -41,8 +41,7 @@ export default function SearchResultsPage() {
                     return (
                       <SearchCategoryCard
                         key={category.id}
-                        id={category.id}
-                        title={category.name}
+                        category={category}
                       />
                     );
                   })}

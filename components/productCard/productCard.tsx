@@ -50,10 +50,10 @@ export const SearchProductCard = ({ product }: { product: any }) => {
       </div>
       <div className={styles.product_content}>
         <div className={styles.product_info}>
-          <p className={styles.product_title}>{product.name}</p>
+          <p className={styles.product_title}>{product.product.name}</p>
           <div
             className={styles.product_desc}
-            dangerouslySetInnerHTML={{ __html: product.description }}
+            dangerouslySetInnerHTML={{ __html: product.product.description }}
           ></div>
         </div>
         <div className={styles.tipa_btn}>{swiperArrow}</div>

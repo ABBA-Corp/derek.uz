@@ -12,6 +12,7 @@ import noimage from "../public/media/noimage.png";
 import { ModalContext } from "../context/modal";
 import { TranslationsContext } from "../context/translations";
 import { ProductCard } from "../components/productCard/productCard";
+import Link from "next/link";
 
 export default function ProductInnerPage() {
   const router = useRouter();
@@ -28,6 +29,7 @@ export default function ProductInnerPage() {
   const [product, setProduct] = useState<any>({});
   const [products, setProducts] = useState<object[]>([]);
   const [categoryName, setCategoryName] = useState<string>("");
+  const [categorySlug, setCategorySlug] = useState<string>("");
 
   async function getProduct(slug: string | any) {
     const res = await axios.get(
@@ -55,6 +57,7 @@ export default function ProductInnerPage() {
           setOrder(res);
           setWeight(res.atributs.length > 0 && res.atributs[0].options[0].id);
           setCategoryName(res.product.category.name);
+          setCategorySlug(res.product.category.id);
           getProducts(res.product.category.id)
             .then((res) => {
               setProducts(res.results);
@@ -190,9 +193,12 @@ export default function ProductInnerPage() {
                       <p className={styles.info_single_key}>
                         {t["product_inner.category"]}:
                       </p>
-                      <p className={styles.info_single_value}>
+                      <Link
+                        href={`${categorySlug}`}
+                        className={styles.info_single_value}
+                      >
                         {product.product?.category.name}
-                      </p>
+                      </Link>
                     </li>
                     <li className={styles.product_info_single}>
                       <p className={styles.info_single_key}>
