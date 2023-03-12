@@ -4,7 +4,7 @@ const withVideos = require("next-videos");
 const nextConfig = {
   reactStrictMode: false,
   i18n: {
-    locales: ["uz", "ru", "en"],
+    locales: ["ru", "en"],
     defaultLocale: "ru",
     localeDetection: false,
   },
