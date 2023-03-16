@@ -1301,7 +1301,7 @@
     bottom: auto;
   }
   .intro_grid__left {
-    height: 770px;
+    height: 850px;
     gap: 0px;
     background-image: url("../public/media/tish_back_mini.png");
     background-position: top;
@@ -1396,6 +1396,9 @@
 }
 
 @media (max-width: 380px) {
+  .intro_grid__left {
+    height: 770px;
+  }
   .category_banner_buttons,
   .middle_last_buttons,
   .content_grid,
