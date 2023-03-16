@@ -81,7 +81,7 @@ export function MainNews() {
             spaceBetween={20}
             slidesPerView={"auto"}
             breakpoints={{
-              0: { slidesPerView: 1.2 },
+              0: { slidesPerView: 1 },
               580: { slidesPerView: 2.2 },
               880: { slidesPerView: 3.2 },
               1200: { slidesPerView: 6 },
@@ -99,9 +99,7 @@ export function MainNews() {
         </div>
       </div>
       <div className={`box ${styles.new_divcha}`}>
-        <p>
-          {t["main.blognews_desc"]}
-        </p>
+        <p>{t["main.blognews_desc"]}</p>
         <Link href={"/news"}>{t["main.blogs_all"]}</Link>
       </div>
     </MotionSection>

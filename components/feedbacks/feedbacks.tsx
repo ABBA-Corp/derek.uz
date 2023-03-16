@@ -80,7 +80,7 @@ export function Feedbacks() {
           spaceBetween={20}
           slidesPerView={"auto"}
           breakpoints={{
-            0: { slidesPerView: 1.2 },
+            0: { slidesPerView: 1 },
             580: { slidesPerView: 2.2 },
             1200: { slidesPerView: 4 },
           }}

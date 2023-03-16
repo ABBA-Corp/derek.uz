@@ -26,10 +26,7 @@ export function ProductCard({ slug, product }: Props) {
       <div className={styles.product_content}>
         <div className={styles.product_info}>
           <p className={styles.product_title}>{product.product.name}</p>
-          <div
-            className={styles.product_desc}
-            dangerouslySetInnerHTML={{ __html: product.product.description }}
-          ></div>
+          <p className={styles.product_desc}>{product.product.type}</p>
         </div>
         <div className={styles.tipa_btn}>{swiperArrow}</div>
       </div>

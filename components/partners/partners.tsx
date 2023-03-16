@@ -79,7 +79,7 @@ export function Partners({ number, layoutClass }: Props) {
           loop
           slidesPerView={"auto"}
           breakpoints={{
-            0: { slidesPerView: 1.2 },
+            0: { slidesPerView: 1 },
             580: { slidesPerView: 2.2 },
             880: { slidesPerView: 3.2 },
             1200: { slidesPerView: number },
