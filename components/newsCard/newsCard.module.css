@@ -38,17 +38,17 @@
 .card_content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .card_title {
   font-size: 16px;
-  line-height: 18px;
+  line-height: 22px;
   font-weight: 500;
   color: var(--black);
   letter-spacing: -0.03rem;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

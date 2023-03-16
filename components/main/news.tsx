@@ -84,7 +84,7 @@ export function MainNews() {
               0: { slidesPerView: 1 },
               580: { slidesPerView: 2.2 },
               880: { slidesPerView: 3.2 },
-              1200: { slidesPerView: 6 },
+              1200: { slidesPerView: 4 },
             }}
             speed={1600}
           >

@@ -35,7 +35,7 @@ export default function NewsInnerpage() {
   const [news, setNews] = useState<any>({});
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(`${url}/${slug}`).then(() => {
+    navigator.clipboard.writeText(`${url}/news/${slug}`).then(() => {
       setIsCopied(true);
       setTimeout(() => {
         setIsCopied(false);

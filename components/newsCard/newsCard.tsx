@@ -71,7 +71,6 @@ export function NewsCard({ i, cardRef, cardIsVisible, slug, news }: Props) {
         </div>
         <div className={styles.card_content}>
           <p className={styles.card_title}>{news.title}</p>
-          <p className={styles.card_desc}>{news.subtitle}</p>
           <p className={styles.card_date}>
             {news.created_date.substring(0, 10)}
           </p>
@@ -96,7 +95,6 @@ export const SearchNewsCard = ({ article }: { article: any }) => {
       </div>
       <div className={styles.card_content}>
         <p className={styles.card_title}>{article.title}</p>
-        <p className={styles.card_desc}>{article.subtitle}</p>
         <p className={styles.card_date}>
           {article.created_date.substring(0, 10)}
         </p>
