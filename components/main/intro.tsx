@@ -1,6 +1,5 @@
 import styles from "../../styles/home.module.css";
 import Image from "next/image";
-import bigOgriq from "../../public/media/tish_back.png";
 import intromini from "../../public/media/intro_mini.jpg";
 import { exclude, logo } from "../../public/icons";
 import { useContext } from "react";
@@ -102,7 +101,6 @@ export function MainIntro() {
               {t["main.hero_derek_max"]}
             </motion.div>
           </div>
-          {/* <Image src={bigOgriq} alt="background" /> */}
         </div>
         <motion.div
           className={styles.intro_big}
