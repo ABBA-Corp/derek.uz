@@ -14,10 +14,7 @@ export function CustomHead({ title, desc, canonical }: Props) {
       <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{title}</title>
-      <meta
-        name="description"
-        content={desc ? desc : "NDC hamda Abba hamkorligidagi website"}
-      />
+      <meta name="description" content={desc ? desc : ""} />
       <link rel="canonical" href={canonical} />
       <link rel="alternate" hrefLang="x-default" href={url} />
       <link rel="alternate" hrefLang="en" href={url} />
